@@ -26,5 +26,12 @@ namespace ProyectoInterfaz {
             this.clienteTableAdapter.Fill(this.segurosDataSet.cliente);
 
         }
+
+        private void bindingNavigatorAddNewItem_Click(object sender,EventArgs e) {
+
+            //Form1 form = new Form1(this.clienteBindingSource);
+            //form.Show();
+
+        }
     }
 }
