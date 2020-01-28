@@ -46,6 +46,9 @@
             this.bindingNavigatorMoveLastCliente = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.clienteBindingNavigatorSaveCliente = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.lblBuscar = new System.Windows.Forms.ToolStripLabel();
+            this.textBuscar = new System.Windows.Forms.ToolStripTextBox();
             this.clienteDataGridView = new System.Windows.Forms.DataGridView();
             this.id_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,15 +74,16 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.polizaBindingNavigatorSavePoliza = new System.Windows.Forms.ToolStripButton();
             this.polizaDataGridView = new System.Windows.Forms.DataGridView();
-            this.clienteTableAdapter = new ProyectoInterfaz.SegurosDataSetTableAdapters.clienteTableAdapter();
-            this.tableAdapterManager = new ProyectoInterfaz.SegurosDataSetTableAdapters.TableAdapterManager();
-            this.polizaTableAdapter = new ProyectoInterfaz.SegurosDataSetTableAdapters.polizaTableAdapter();
             this.id_poliza = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fk_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.observaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clienteTableAdapter = new ProyectoInterfaz.SegurosDataSetTableAdapters.clienteTableAdapter();
+            this.clienteTableAdapterManager = new ProyectoInterfaz.SegurosDataSetTableAdapters.TableAdapterManager();
+            this.polizaTableAdapter = new ProyectoInterfaz.SegurosDataSetTableAdapters.polizaTableAdapter();
+            this.polizaTableAdapterManager = new ProyectoInterfaz.SegurosDataSetTableAdapters.TableAdapterManager();
             this.tabMain.SuspendLayout();
             this.tabClientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingNavigator)).BeginInit();
@@ -104,6 +108,7 @@
             this.tabMain.SelectedIndex = 0;
             this.tabMain.Size = new System.Drawing.Size(852, 455);
             this.tabMain.TabIndex = 0;
+            this.tabMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabMain_Selecting);
             // 
             // tabClientes
             // 
@@ -135,7 +140,10 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewCliente,
             this.bindingNavigatorDeleteCliente,
-            this.clienteBindingNavigatorSaveCliente});
+            this.clienteBindingNavigatorSaveCliente,
+            this.toolStripSeparator4,
+            this.lblBuscar,
+            this.textBuscar});
             this.clienteBindingNavigator.Location = new System.Drawing.Point(3, 3);
             this.clienteBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstCliente;
             this.clienteBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastCliente;
@@ -155,7 +163,6 @@
             this.bindingNavigatorAddNewCliente.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewCliente.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewCliente.Text = "Agregar nuevo";
-            this.bindingNavigatorAddNewCliente.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // clienteBindingSource
             // 
@@ -210,6 +217,7 @@
             // 
             this.bindingNavigatorPositionCliente.AccessibleName = "Posición";
             this.bindingNavigatorPositionCliente.AutoSize = false;
+            this.bindingNavigatorPositionCliente.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionCliente.Name = "bindingNavigatorPositionCliente";
             this.bindingNavigatorPositionCliente.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionCliente.Text = "0";
@@ -251,6 +259,24 @@
             this.clienteBindingNavigatorSaveCliente.Size = new System.Drawing.Size(23, 22);
             this.clienteBindingNavigatorSaveCliente.Text = "Guardar datos";
             this.clienteBindingNavigatorSaveCliente.Click += new System.EventHandler(this.clienteBindingNavigatorSaveItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // lblBuscar
+            // 
+            this.lblBuscar.Name = "lblBuscar";
+            this.lblBuscar.Size = new System.Drawing.Size(45, 22);
+            this.lblBuscar.Text = "Buscar:";
+            // 
+            // textBuscar
+            // 
+            this.textBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBuscar.Name = "textBuscar";
+            this.textBuscar.Size = new System.Drawing.Size(170, 25);
+            this.textBuscar.TextChanged += new System.EventHandler(this.textBuscar_TextChanged);
             // 
             // clienteDataGridView
             // 
@@ -304,13 +330,14 @@
             this.clienteDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.clienteDataGridView.Size = new System.Drawing.Size(838, 395);
             this.clienteDataGridView.TabIndex = 0;
+            this.clienteDataGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.clienteDataGridView_CellMouseDoubleClick);
+            this.clienteDataGridView.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.clienteDataGridView_RowStateChanged);
             // 
             // id_cliente
             // 
             this.id_cliente.DataPropertyName = "id";
             this.id_cliente.HeaderText = "id";
             this.id_cliente.Name = "id_cliente";
-            this.id_cliente.Visible = false;
             // 
             // nombre
             // 
@@ -453,6 +480,7 @@
             // 
             this.bindingNavigatorPositionPoliza.AccessibleName = "Posición";
             this.bindingNavigatorPositionPoliza.AutoSize = false;
+            this.bindingNavigatorPositionPoliza.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionPoliza.Name = "bindingNavigatorPositionPoliza";
             this.bindingNavigatorPositionPoliza.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionPoliza.Text = "0";
@@ -497,6 +525,7 @@
             // 
             // polizaDataGridView
             // 
+            this.polizaDataGridView.AllowUserToAddRows = false;
             this.polizaDataGridView.AllowUserToResizeRows = false;
             this.polizaDataGridView.AutoGenerateColumns = false;
             this.polizaDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -519,23 +548,6 @@
             this.polizaDataGridView.CancelRowEdit += new System.Windows.Forms.QuestionEventHandler(this.polizaDataGridView_CancelRowEdit);
             this.polizaDataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.polizaDataGridView_CellBeginEdit);
             this.polizaDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.polizaDataGridView_CellEndEdit);
-            // 
-            // clienteTableAdapter
-            // 
-            this.clienteTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.clienteTableAdapter = this.clienteTableAdapter;
-            this.tableAdapterManager.pagoTableAdapter = null;
-            this.tableAdapterManager.polizaTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = ProyectoInterfaz.SegurosDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.usuarioTableAdapter = null;
-            // 
-            // polizaTableAdapter
-            // 
-            this.polizaTableAdapter.ClearBeforeFill = true;
             // 
             // id_poliza
             // 
@@ -573,6 +585,32 @@
             this.observaciones.HeaderText = "Observaciones";
             this.observaciones.Name = "observaciones";
             // 
+            // clienteTableAdapter
+            // 
+            this.clienteTableAdapter.ClearBeforeFill = true;
+            // 
+            // clienteTableAdapterManager
+            // 
+            this.clienteTableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.clienteTableAdapterManager.clienteTableAdapter = this.clienteTableAdapter;
+            this.clienteTableAdapterManager.pagoTableAdapter = null;
+            this.clienteTableAdapterManager.polizaTableAdapter = null;
+            this.clienteTableAdapterManager.UpdateOrder = ProyectoInterfaz.SegurosDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.clienteTableAdapterManager.usuarioTableAdapter = null;
+            // 
+            // polizaTableAdapter
+            // 
+            this.polizaTableAdapter.ClearBeforeFill = true;
+            // 
+            // polizaTableAdapterManager
+            // 
+            this.polizaTableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.polizaTableAdapterManager.clienteTableAdapter = null;
+            this.polizaTableAdapterManager.pagoTableAdapter = null;
+            this.polizaTableAdapterManager.polizaTableAdapter = this.polizaTableAdapter;
+            this.polizaTableAdapterManager.UpdateOrder = ProyectoInterfaz.SegurosDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.polizaTableAdapterManager.usuarioTableAdapter = null;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -580,6 +618,7 @@
             this.ClientSize = new System.Drawing.Size(852, 455);
             this.Controls.Add(this.tabMain);
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabMain.ResumeLayout(false);
@@ -610,7 +649,7 @@
         private SegurosDataSet segurosDataSet;
         private System.Windows.Forms.BindingSource clienteBindingSource;
         private SegurosDataSetTableAdapters.clienteTableAdapter clienteTableAdapter;
-        private SegurosDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private SegurosDataSetTableAdapters.TableAdapterManager clienteTableAdapterManager;
         private System.Windows.Forms.BindingNavigator clienteBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewCliente;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountCliente;
@@ -625,14 +664,6 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton clienteBindingNavigatorSaveCliente;
         private System.Windows.Forms.DataGridView clienteDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn localidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigo_postal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn provincia;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn empresa;
         private System.Windows.Forms.BindingSource polizaBindingSource;
         private SegurosDataSetTableAdapters.polizaTableAdapter polizaTableAdapter;
         private System.Windows.Forms.BindingNavigator polizaBindingNavigator;
@@ -655,6 +686,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn observaciones;
+        private SegurosDataSetTableAdapters.TableAdapterManager polizaTableAdapterManager;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripLabel lblBuscar;
+        private System.Windows.Forms.ToolStripTextBox textBuscar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn localidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigo_postal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn provincia;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn empresa;
     }
 }
 
