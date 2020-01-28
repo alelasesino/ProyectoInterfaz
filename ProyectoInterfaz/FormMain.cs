@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoInterfaz {
-    public partial class FormMain:System.Windows.Forms.Form {
+    public partial class FormMain: Form {
         public FormMain() {
             InitializeComponent();
         }
@@ -17,7 +17,7 @@ namespace ProyectoInterfaz {
         private void clienteBindingNavigatorSaveItem_Click(object sender,EventArgs e) {
             this.Validate();
             this.clienteBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.segurosDataSet);
+            this.clienteTableAdapterManager.UpdateAll(this.segurosDataSet);
 
         }
 
@@ -26,14 +26,12 @@ namespace ProyectoInterfaz {
             this.polizaTableAdapter.Fill(this.segurosDataSet.poliza);
             // TODO: esta línea de código carga datos en la tabla 'segurosDataSet.cliente' Puede moverla o quitarla según sea necesario.
             this.clienteTableAdapter.Fill(this.segurosDataSet.cliente);
-
         }
 
-        private void bindingNavigatorAddNewItem_Click(object sender,EventArgs e) {
-
-            //Form1 form = new Form1(this.clienteBindingSource);
-            //form.Show();
-
+        private void polizaBindingNavigatorSavePoliza_Click(object sender,EventArgs e) {
+            this.Validate();
+            this.polizaBindingSource.EndEdit();
+            this.polizaTableAdapterManager.UpdateAll(this.segurosDataSet);
         }
     }
 }

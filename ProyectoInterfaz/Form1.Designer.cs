@@ -45,26 +45,26 @@
             this.polizaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.polizaTableAdapter = new ProyectoInterfaz.SegurosDataSetTableAdapters.polizaTableAdapter();
             this.tableAdapterManager = new ProyectoInterfaz.SegurosDataSetTableAdapters.TableAdapterManager();
-            this.bindingNavigatorMoveFirstPoliza = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousPoliza = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionPoliza = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountPoliza = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextPoliza = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastPoliza = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewPoliza = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeletePoliza = new System.Windows.Forms.ToolStripButton();
-            this.polizaBindingNavigatorSavePoliza = new System.Windows.Forms.ToolStripButton();
             this.polizaBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.polizaBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.polizaDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.segurosDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.polizaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.polizaBindingNavigator)).BeginInit();
@@ -234,166 +234,129 @@
             this.tableAdapterManager.UpdateOrder = ProyectoInterfaz.SegurosDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.usuarioTableAdapter = null;
             // 
-            // bindingNavigatorMoveFirstPoliza
+            // polizaBindingNavigator
             // 
-            this.bindingNavigatorMoveFirstPoliza.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstPoliza.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstPoliza.Image")));
-            this.bindingNavigatorMoveFirstPoliza.Name = "bindingNavigatorMoveFirstPoliza";
-            this.bindingNavigatorMoveFirstPoliza.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstPoliza.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstPoliza.Text = "Mover primero";
+            this.polizaBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.polizaBindingNavigator.BindingSource = this.polizaBindingSource;
+            this.polizaBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+            this.polizaBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.polizaBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstItem,
+            this.bindingNavigatorMovePreviousItem,
+            this.bindingNavigatorSeparator,
+            this.bindingNavigatorPositionItem,
+            this.bindingNavigatorCountItem,
+            this.bindingNavigatorSeparator1,
+            this.bindingNavigatorMoveNextItem,
+            this.bindingNavigatorMoveLastItem,
+            this.bindingNavigatorSeparator2,
+            this.bindingNavigatorAddNewItem,
+            this.bindingNavigatorDeleteItem,
+            this.polizaBindingNavigatorSaveItem});
+            this.polizaBindingNavigator.Location = new System.Drawing.Point(0, 0);
+            this.polizaBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.polizaBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.polizaBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.polizaBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.polizaBindingNavigator.Name = "polizaBindingNavigator";
+            this.polizaBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+            this.polizaBindingNavigator.Size = new System.Drawing.Size(890, 25);
+            this.polizaBindingNavigator.TabIndex = 16;
+            this.polizaBindingNavigator.Text = "bindingNavigator1";
             // 
-            // bindingNavigatorMovePreviousPoliza
+            // bindingNavigatorMoveFirstItem
             // 
-            this.bindingNavigatorMovePreviousPoliza.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousPoliza.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousPoliza.Image")));
-            this.bindingNavigatorMovePreviousPoliza.Name = "bindingNavigatorMovePreviousPoliza";
-            this.bindingNavigatorMovePreviousPoliza.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousPoliza.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousPoliza.Text = "Mover anterior";
+            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstItem.Text = "Mover primero";
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousItem.Text = "Mover anterior";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
             this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
             // 
-            // bindingNavigatorPositionPoliza
+            // bindingNavigatorPositionItem
             // 
-            this.bindingNavigatorPositionPoliza.AccessibleName = "Posición";
-            this.bindingNavigatorPositionPoliza.AutoSize = false;
-            this.bindingNavigatorPositionPoliza.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorPositionPoliza.Name = "bindingNavigatorPositionPoliza";
-            this.bindingNavigatorPositionPoliza.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionPoliza.Text = "0";
-            this.bindingNavigatorPositionPoliza.ToolTipText = "Posición actual";
+            this.bindingNavigatorPositionItem.AccessibleName = "Posición";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Posición actual";
             // 
-            // bindingNavigatorCountPoliza
+            // bindingNavigatorCountItem
             // 
-            this.bindingNavigatorCountPoliza.Name = "bindingNavigatorCountPoliza";
-            this.bindingNavigatorCountPoliza.Size = new System.Drawing.Size(37, 22);
-            this.bindingNavigatorCountPoliza.Text = "de {0}";
-            this.bindingNavigatorCountPoliza.ToolTipText = "Número total de elementos";
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 15);
+            this.bindingNavigatorCountItem.Text = "de {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
             // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 6);
             // 
-            // bindingNavigatorMoveNextPoliza
+            // bindingNavigatorMoveNextItem
             // 
-            this.bindingNavigatorMoveNextPoliza.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextPoliza.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextPoliza.Image")));
-            this.bindingNavigatorMoveNextPoliza.Name = "bindingNavigatorMoveNextPoliza";
-            this.bindingNavigatorMoveNextPoliza.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextPoliza.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextPoliza.Text = "Mover siguiente";
+            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveNextItem.Text = "Mover siguiente";
             // 
-            // bindingNavigatorMoveLastPoliza
+            // bindingNavigatorMoveLastItem
             // 
-            this.bindingNavigatorMoveLastPoliza.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastPoliza.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastPoliza.Image")));
-            this.bindingNavigatorMoveLastPoliza.Name = "bindingNavigatorMoveLastPoliza";
-            this.bindingNavigatorMoveLastPoliza.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastPoliza.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastPoliza.Text = "Mover último";
+            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveLastItem.Text = "Mover último";
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 6);
             // 
-            // bindingNavigatorAddNewPoliza
+            // bindingNavigatorAddNewItem
             // 
-            this.bindingNavigatorAddNewPoliza.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewPoliza.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewPoliza.Image")));
-            this.bindingNavigatorAddNewPoliza.Name = "bindingNavigatorAddNewPoliza";
-            this.bindingNavigatorAddNewPoliza.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewPoliza.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewPoliza.Text = "Agregar nuevo";
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
             // 
-            // bindingNavigatorDeletePoliza
+            // bindingNavigatorDeleteItem
             // 
-            this.bindingNavigatorDeletePoliza.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeletePoliza.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeletePoliza.Image")));
-            this.bindingNavigatorDeletePoliza.Name = "bindingNavigatorDeletePoliza";
-            this.bindingNavigatorDeletePoliza.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeletePoliza.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeletePoliza.Text = "Eliminar";
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorDeleteItem.Text = "Eliminar";
             // 
-            // polizaBindingNavigatorSavePoliza
+            // polizaBindingNavigatorSaveItem
             // 
-            this.polizaBindingNavigatorSavePoliza.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.polizaBindingNavigatorSavePoliza.Image = ((System.Drawing.Image)(resources.GetObject("polizaBindingNavigatorSavePoliza.Image")));
-            this.polizaBindingNavigatorSavePoliza.Name = "polizaBindingNavigatorSavePoliza";
-            this.polizaBindingNavigatorSavePoliza.Size = new System.Drawing.Size(23, 22);
-            this.polizaBindingNavigatorSavePoliza.Text = "Guardar datos";
-            this.polizaBindingNavigatorSavePoliza.Click += new System.EventHandler(this.polizaBindingNavigatorSaveItem_Click);
-            // 
-            // polizaBindingNavigator
-            // 
-            this.polizaBindingNavigator.AddNewItem = this.bindingNavigatorAddNewPoliza;
-            this.polizaBindingNavigator.BindingSource = this.polizaBindingSource;
-            this.polizaBindingNavigator.CountItem = this.bindingNavigatorCountPoliza;
-            this.polizaBindingNavigator.DeleteItem = this.bindingNavigatorDeletePoliza;
-            this.polizaBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstPoliza,
-            this.bindingNavigatorMovePreviousPoliza,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionPoliza,
-            this.bindingNavigatorCountPoliza,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextPoliza,
-            this.bindingNavigatorMoveLastPoliza,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewPoliza,
-            this.bindingNavigatorDeletePoliza,
-            this.polizaBindingNavigatorSavePoliza});
-            this.polizaBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.polizaBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstPoliza;
-            this.polizaBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastPoliza;
-            this.polizaBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextPoliza;
-            this.polizaBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousPoliza;
-            this.polizaBindingNavigator.Name = "polizaBindingNavigator";
-            this.polizaBindingNavigator.PositionItem = this.bindingNavigatorPositionPoliza;
-            this.polizaBindingNavigator.Size = new System.Drawing.Size(890, 25);
-            this.polizaBindingNavigator.TabIndex = 16;
-            this.polizaBindingNavigator.Text = "bindingNavigator1";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "observaciones";
-            this.dataGridViewTextBoxColumn6.HeaderText = "observaciones";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "estado";
-            this.dataGridViewTextBoxColumn5.HeaderText = "estado";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "fecha";
-            this.dataGridViewTextBoxColumn4.HeaderText = "fecha";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "importe";
-            this.dataGridViewTextBoxColumn3.HeaderText = "importe";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "id_cliente";
-            this.dataGridViewTextBoxColumn2.HeaderText = "id_cliente";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.polizaBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.polizaBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("polizaBindingNavigatorSaveItem.Image")));
+            this.polizaBindingNavigatorSaveItem.Name = "polizaBindingNavigatorSaveItem";
+            this.polizaBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 23);
+            this.polizaBindingNavigatorSaveItem.Text = "Guardar datos";
+            this.polizaBindingNavigatorSaveItem.Click += new System.EventHandler(this.polizaBindingNavigatorSaveItem_Click_1);
             // 
             // polizaDataGridView
             // 
@@ -407,10 +370,46 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
             this.polizaDataGridView.DataSource = this.polizaBindingSource;
-            this.polizaDataGridView.Location = new System.Drawing.Point(570, 145);
+            this.polizaDataGridView.Location = new System.Drawing.Point(486, 95);
             this.polizaDataGridView.Name = "polizaDataGridView";
             this.polizaDataGridView.Size = new System.Drawing.Size(300, 220);
             this.polizaDataGridView.TabIndex = 17;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "id_cliente";
+            this.dataGridViewTextBoxColumn2.HeaderText = "id_cliente";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "importe";
+            this.dataGridViewTextBoxColumn3.HeaderText = "importe";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "fecha";
+            this.dataGridViewTextBoxColumn4.HeaderText = "fecha";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "estado";
+            this.dataGridViewTextBoxColumn5.HeaderText = "estado";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "observaciones";
+            this.dataGridViewTextBoxColumn6.HeaderText = "observaciones";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // Form1
             // 
@@ -473,25 +472,25 @@
         private System.Windows.Forms.BindingSource polizaBindingSource;
         private SegurosDataSetTableAdapters.polizaTableAdapter polizaTableAdapter;
         private SegurosDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstPoliza;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousPoliza;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionPoliza;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountPoliza;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextPoliza;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastPoliza;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewPoliza;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeletePoliza;
-        private System.Windows.Forms.ToolStripButton polizaBindingNavigatorSavePoliza;
         private System.Windows.Forms.BindingNavigator polizaBindingNavigator;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
+        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
+        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
+        private System.Windows.Forms.ToolStripButton polizaBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView polizaDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }
