@@ -25,10 +25,10 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabClientes = new System.Windows.Forms.TabPage();
             this.clienteBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
@@ -47,21 +47,18 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.clienteBindingNavigatorSaveCliente = new System.Windows.Forms.ToolStripButton();
             this.clienteDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.id_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigo_postal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.provincia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.empresa = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabPolizas = new System.Windows.Forms.TabPage();
-            this.clienteTableAdapter = new ProyectoInterfaz.SegurosDataSetTableAdapters.clienteTableAdapter();
-            this.tableAdapterManager = new ProyectoInterfaz.SegurosDataSetTableAdapters.TableAdapterManager();
-            this.polizaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.polizaTableAdapter = new ProyectoInterfaz.SegurosDataSetTableAdapters.polizaTableAdapter();
             this.polizaBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewPoliza = new System.Windows.Forms.ToolStripButton();
+            this.polizaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountPoliza = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeletePoliza = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstPoliza = new System.Windows.Forms.ToolStripButton();
@@ -74,12 +71,15 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.polizaBindingNavigatorSavePoliza = new System.Windows.Forms.ToolStripButton();
             this.polizaDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clienteTableAdapter = new ProyectoInterfaz.SegurosDataSetTableAdapters.clienteTableAdapter();
+            this.tableAdapterManager = new ProyectoInterfaz.SegurosDataSetTableAdapters.TableAdapterManager();
+            this.polizaTableAdapter = new ProyectoInterfaz.SegurosDataSetTableAdapters.polizaTableAdapter();
+            this.id_poliza = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fk_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.observaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabMain.SuspendLayout();
             this.tabClientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingNavigator)).BeginInit();
@@ -88,9 +88,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.segurosDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteDataGridView)).BeginInit();
             this.tabPolizas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.polizaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.polizaBindingNavigator)).BeginInit();
             this.polizaBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.polizaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.polizaDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -255,104 +255,104 @@
             // clienteDataGridView
             // 
             this.clienteDataGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(221)))), ((int)(((byte)(181)))));
-            this.clienteDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(221)))), ((int)(((byte)(181)))));
+            this.clienteDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.clienteDataGridView.AutoGenerateColumns = false;
             this.clienteDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.clienteDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(150)))));
             this.clienteDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(97)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.clienteDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(97)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.clienteDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.clienteDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.clienteDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewCheckBoxColumn1});
+            this.id_cliente,
+            this.nombre,
+            this.apellido,
+            this.telefono,
+            this.localidad,
+            this.codigo_postal,
+            this.provincia,
+            this.empresa});
             this.clienteDataGridView.DataSource = this.clienteBindingSource;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(150)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(125)))), ((int)(((byte)(18)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.clienteDataGridView.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(150)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(125)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.clienteDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.clienteDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.clienteDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(150)))));
             this.clienteDataGridView.Location = new System.Drawing.Point(3, 31);
             this.clienteDataGridView.Name = "clienteDataGridView";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(125)))), ((int)(((byte)(18)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.clienteDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(125)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.clienteDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.clienteDataGridView.RowHeadersVisible = false;
             this.clienteDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.clienteDataGridView.Size = new System.Drawing.Size(838, 395);
             this.clienteDataGridView.TabIndex = 0;
             // 
-            // dataGridViewTextBoxColumn1
+            // id_cliente
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Visible = false;
+            this.id_cliente.DataPropertyName = "id";
+            this.id_cliente.HeaderText = "id";
+            this.id_cliente.Name = "id_cliente";
+            this.id_cliente.Visible = false;
             // 
-            // dataGridViewTextBoxColumn2
+            // nombre
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "nombre";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
             // 
-            // dataGridViewTextBoxColumn3
+            // apellido
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "apellido";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Apellido";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.apellido.DataPropertyName = "apellido";
+            this.apellido.HeaderText = "Apellido";
+            this.apellido.Name = "apellido";
             // 
-            // dataGridViewTextBoxColumn4
+            // telefono
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "telefono";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Telefono";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.telefono.DataPropertyName = "telefono";
+            this.telefono.HeaderText = "Telefono";
+            this.telefono.Name = "telefono";
             // 
-            // dataGridViewTextBoxColumn5
+            // localidad
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "localidad";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Localidad";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.localidad.DataPropertyName = "localidad";
+            this.localidad.HeaderText = "Localidad";
+            this.localidad.Name = "localidad";
             // 
-            // dataGridViewTextBoxColumn6
+            // codigo_postal
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "codigo_postal";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Codigo Postal";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.codigo_postal.DataPropertyName = "codigo_postal";
+            this.codigo_postal.HeaderText = "Codigo Postal";
+            this.codigo_postal.Name = "codigo_postal";
             // 
-            // dataGridViewTextBoxColumn7
+            // provincia
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "provincia";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Provincia";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.provincia.DataPropertyName = "provincia";
+            this.provincia.HeaderText = "Provincia";
+            this.provincia.Name = "provincia";
             // 
-            // dataGridViewCheckBoxColumn1
+            // empresa
             // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "empresa";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "Empresa";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.empresa.DataPropertyName = "empresa";
+            this.empresa.HeaderText = "Empresa";
+            this.empresa.Name = "empresa";
             // 
             // tabPolizas
             // 
@@ -365,28 +365,6 @@
             this.tabPolizas.TabIndex = 1;
             this.tabPolizas.Text = " Polizas";
             this.tabPolizas.UseVisualStyleBackColor = true;
-            // 
-            // clienteTableAdapter
-            // 
-            this.clienteTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.clienteTableAdapter = this.clienteTableAdapter;
-            this.tableAdapterManager.pagoTableAdapter = null;
-            this.tableAdapterManager.polizaTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = ProyectoInterfaz.SegurosDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.usuarioTableAdapter = null;
-            // 
-            // polizaBindingSource
-            // 
-            this.polizaBindingSource.DataMember = "poliza";
-            this.polizaBindingSource.DataSource = this.segurosDataSet;
-            // 
-            // polizaTableAdapter
-            // 
-            this.polizaTableAdapter.ClearBeforeFill = true;
             // 
             // polizaBindingNavigator
             // 
@@ -426,6 +404,11 @@
             this.bindingNavigatorAddNewPoliza.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewPoliza.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewPoliza.Text = "Agregar nuevo";
+            // 
+            // polizaBindingSource
+            // 
+            this.polizaBindingSource.DataMember = "poliza";
+            this.polizaBindingSource.DataSource = this.segurosDataSet;
             // 
             // bindingNavigatorCountPoliza
             // 
@@ -510,6 +493,7 @@
             this.polizaBindingNavigatorSavePoliza.Name = "polizaBindingNavigatorSavePoliza";
             this.polizaBindingNavigatorSavePoliza.Size = new System.Drawing.Size(23, 22);
             this.polizaBindingNavigatorSavePoliza.Text = "Guardar datos";
+            this.polizaBindingNavigatorSavePoliza.Click += new System.EventHandler(this.polizaBindingNavigatorSaveItem_Click);
             // 
             // polizaDataGridView
             // 
@@ -518,12 +502,12 @@
             this.polizaDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.polizaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.polizaDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13});
+            this.id_poliza,
+            this.fk_cliente,
+            this.importe,
+            this.fecha,
+            this.estado,
+            this.observaciones});
             this.polizaDataGridView.DataSource = this.polizaBindingSource;
             this.polizaDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.polizaDataGridView.Location = new System.Drawing.Point(3, 31);
@@ -532,44 +516,62 @@
             this.polizaDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.polizaDataGridView.Size = new System.Drawing.Size(838, 395);
             this.polizaDataGridView.TabIndex = 18;
+            this.polizaDataGridView.CancelRowEdit += new System.Windows.Forms.QuestionEventHandler(this.polizaDataGridView_CancelRowEdit);
+            this.polizaDataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.polizaDataGridView_CellBeginEdit);
+            this.polizaDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.polizaDataGridView_CellEndEdit);
             // 
-            // dataGridViewTextBoxColumn8
+            // clienteTableAdapter
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn8.HeaderText = "id";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Visible = false;
+            this.clienteTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridViewTextBoxColumn9
+            // tableAdapterManager
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "id_cliente";
-            this.dataGridViewTextBoxColumn9.HeaderText = "id_cliente";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Visible = false;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.clienteTableAdapter = this.clienteTableAdapter;
+            this.tableAdapterManager.pagoTableAdapter = null;
+            this.tableAdapterManager.polizaTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = ProyectoInterfaz.SegurosDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.usuarioTableAdapter = null;
             // 
-            // dataGridViewTextBoxColumn10
+            // polizaTableAdapter
             // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "importe";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Importe";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.polizaTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridViewTextBoxColumn11
+            // id_poliza
             // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "fecha";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Fecha";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.id_poliza.DataPropertyName = "id";
+            this.id_poliza.HeaderText = "id";
+            this.id_poliza.Name = "id_poliza";
             // 
-            // dataGridViewTextBoxColumn12
+            // fk_cliente
             // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "estado";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Estado";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.fk_cliente.DataPropertyName = "id_cliente";
+            this.fk_cliente.HeaderText = "id_cliente";
+            this.fk_cliente.Name = "fk_cliente";
             // 
-            // dataGridViewTextBoxColumn13
+            // importe
             // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "observaciones";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Observaciones";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.importe.DataPropertyName = "importe";
+            this.importe.HeaderText = "Importe";
+            this.importe.Name = "importe";
+            // 
+            // fecha
+            // 
+            this.fecha.DataPropertyName = "fecha";
+            this.fecha.HeaderText = "Fecha";
+            this.fecha.Name = "fecha";
+            // 
+            // estado
+            // 
+            this.estado.DataPropertyName = "estado";
+            this.estado.HeaderText = "Estado";
+            this.estado.Name = "estado";
+            // 
+            // observaciones
+            // 
+            this.observaciones.DataPropertyName = "observaciones";
+            this.observaciones.HeaderText = "Observaciones";
+            this.observaciones.Name = "observaciones";
             // 
             // FormMain
             // 
@@ -591,10 +593,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.clienteDataGridView)).EndInit();
             this.tabPolizas.ResumeLayout(false);
             this.tabPolizas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.polizaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.polizaBindingNavigator)).EndInit();
             this.polizaBindingNavigator.ResumeLayout(false);
             this.polizaBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.polizaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.polizaDataGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -623,14 +625,14 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton clienteBindingNavigatorSaveCliente;
         private System.Windows.Forms.DataGridView clienteDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn localidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigo_postal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn provincia;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn empresa;
         private System.Windows.Forms.BindingSource polizaBindingSource;
         private SegurosDataSetTableAdapters.polizaTableAdapter polizaTableAdapter;
         private System.Windows.Forms.BindingNavigator polizaBindingNavigator;
@@ -647,12 +649,12 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton polizaBindingNavigatorSavePoliza;
         private System.Windows.Forms.DataGridView polizaDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_poliza;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fk_cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn importe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn observaciones;
     }
 }
 
