@@ -25,10 +25,10 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabClientes = new System.Windows.Forms.TabPage();
             this.clienteBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
@@ -59,6 +59,7 @@
             this.provincia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empresa = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabPolizas = new System.Windows.Forms.TabPage();
+            this.lblCliente = new System.Windows.Forms.Label();
             this.polizaBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewPoliza = new System.Windows.Forms.ToolStripButton();
             this.polizaBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -76,14 +77,35 @@
             this.polizaDataGridView = new System.Windows.Forms.DataGridView();
             this.id_poliza = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fk_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.importe_poliza = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.observaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPagos = new System.Windows.Forms.TabPage();
+            this.pagoDataGridView = new System.Windows.Forms.DataGridView();
+            this.id_pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fk_poliza = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.importe_pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pagoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pagoBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewPago = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountPago = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeletePago = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveFirstPago = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousPago = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionPago = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextPago = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastPago = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.pagoBindingNavigatorSavePago = new System.Windows.Forms.ToolStripButton();
             this.clienteTableAdapter = new ProyectoInterfaz.SegurosDataSetTableAdapters.clienteTableAdapter();
             this.clienteTableAdapterManager = new ProyectoInterfaz.SegurosDataSetTableAdapters.TableAdapterManager();
             this.polizaTableAdapter = new ProyectoInterfaz.SegurosDataSetTableAdapters.polizaTableAdapter();
             this.polizaTableAdapterManager = new ProyectoInterfaz.SegurosDataSetTableAdapters.TableAdapterManager();
+            this.pagoTableAdapter = new ProyectoInterfaz.SegurosDataSetTableAdapters.pagoTableAdapter();
+            this.pagoTableAdapterManager = new ProyectoInterfaz.SegurosDataSetTableAdapters.TableAdapterManager();
             this.tabMain.SuspendLayout();
             this.tabClientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingNavigator)).BeginInit();
@@ -96,12 +118,18 @@
             this.polizaBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.polizaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.polizaDataGridView)).BeginInit();
+            this.tabPagos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pagoDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pagoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pagoBindingNavigator)).BeginInit();
+            this.pagoBindingNavigator.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabMain
             // 
             this.tabMain.Controls.Add(this.tabClientes);
             this.tabMain.Controls.Add(this.tabPolizas);
+            this.tabMain.Controls.Add(this.tabPagos);
             this.tabMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabMain.Location = new System.Drawing.Point(0, 0);
             this.tabMain.Name = "tabMain";
@@ -216,6 +244,7 @@
             // 
             this.bindingNavigatorPositionCliente.AccessibleName = "Posición";
             this.bindingNavigatorPositionCliente.AutoSize = false;
+            this.bindingNavigatorPositionCliente.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionCliente.Name = "bindingNavigatorPositionCliente";
             this.bindingNavigatorPositionCliente.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionCliente.Text = "0";
@@ -272,27 +301,29 @@
             // textBuscar
             // 
             this.textBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBuscar.Name = "textBuscar";
             this.textBuscar.Size = new System.Drawing.Size(170, 25);
             this.textBuscar.TextChanged += new System.EventHandler(this.textBuscar_TextChanged);
             // 
             // clienteDataGridView
             // 
+            this.clienteDataGridView.AllowUserToAddRows = false;
             this.clienteDataGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(221)))), ((int)(((byte)(181)))));
-            this.clienteDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(221)))), ((int)(((byte)(181)))));
+            this.clienteDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.clienteDataGridView.AutoGenerateColumns = false;
             this.clienteDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.clienteDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(150)))));
             this.clienteDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(97)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.clienteDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(97)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.clienteDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.clienteDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.clienteDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_cliente,
@@ -304,26 +335,26 @@
             this.provincia,
             this.empresa});
             this.clienteDataGridView.DataSource = this.clienteBindingSource;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(150)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(125)))), ((int)(((byte)(18)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.clienteDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(150)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(125)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.clienteDataGridView.DefaultCellStyle = dataGridViewCellStyle15;
             this.clienteDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.clienteDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(150)))));
             this.clienteDataGridView.Location = new System.Drawing.Point(3, 31);
             this.clienteDataGridView.Name = "clienteDataGridView";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(125)))), ((int)(((byte)(18)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.clienteDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(125)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.clienteDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.clienteDataGridView.RowHeadersVisible = false;
             this.clienteDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.clienteDataGridView.Size = new System.Drawing.Size(838, 395);
@@ -381,6 +412,7 @@
             // 
             // tabPolizas
             // 
+            this.tabPolizas.Controls.Add(this.lblCliente);
             this.tabPolizas.Controls.Add(this.polizaBindingNavigator);
             this.tabPolizas.Controls.Add(this.polizaDataGridView);
             this.tabPolizas.Location = new System.Drawing.Point(4, 22);
@@ -390,6 +422,16 @@
             this.tabPolizas.TabIndex = 1;
             this.tabPolizas.Text = " Polizas";
             this.tabPolizas.UseVisualStyleBackColor = true;
+            // 
+            // lblCliente
+            // 
+            this.lblCliente.AutoSize = true;
+            this.lblCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCliente.Location = new System.Drawing.Point(7, 40);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(79, 29);
+            this.lblCliente.TabIndex = 19;
+            this.lblCliente.Text = "label1";
             // 
             // polizaBindingNavigator
             // 
@@ -429,6 +471,7 @@
             this.bindingNavigatorAddNewPoliza.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewPoliza.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewPoliza.Text = "Agregar nuevo";
+            this.bindingNavigatorAddNewPoliza.Click += new System.EventHandler(this.bindingNavigatorAddNewPoliza_Click);
             // 
             // polizaBindingSource
             // 
@@ -478,6 +521,7 @@
             // 
             this.bindingNavigatorPositionPoliza.AccessibleName = "Posición";
             this.bindingNavigatorPositionPoliza.AutoSize = false;
+            this.bindingNavigatorPositionPoliza.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionPoliza.Name = "bindingNavigatorPositionPoliza";
             this.bindingNavigatorPositionPoliza.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionPoliza.Text = "0";
@@ -530,20 +574,22 @@
             this.polizaDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_poliza,
             this.fk_cliente,
-            this.importe,
+            this.importe_poliza,
             this.fecha,
             this.estado,
             this.observaciones});
             this.polizaDataGridView.DataSource = this.polizaBindingSource;
             this.polizaDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.polizaDataGridView.Location = new System.Drawing.Point(3, 31);
+            this.polizaDataGridView.Location = new System.Drawing.Point(3, 80);
             this.polizaDataGridView.Name = "polizaDataGridView";
             this.polizaDataGridView.RowHeadersVisible = false;
             this.polizaDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.polizaDataGridView.Size = new System.Drawing.Size(838, 395);
+            this.polizaDataGridView.Size = new System.Drawing.Size(838, 346);
             this.polizaDataGridView.TabIndex = 18;
             this.polizaDataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.polizaDataGridView_CellBeginEdit);
             this.polizaDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.polizaDataGridView_CellEndEdit);
+            this.polizaDataGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.polizaDataGridView_CellMouseDoubleClick);
+            this.polizaDataGridView.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.polizaDataGridView_RowStateChanged);
             // 
             // id_poliza
             // 
@@ -557,11 +603,11 @@
             this.fk_cliente.HeaderText = "id_cliente";
             this.fk_cliente.Name = "fk_cliente";
             // 
-            // importe
+            // importe_poliza
             // 
-            this.importe.DataPropertyName = "importe";
-            this.importe.HeaderText = "Importe";
-            this.importe.Name = "importe";
+            this.importe_poliza.DataPropertyName = "importe";
+            this.importe_poliza.HeaderText = "Importe (EUR)";
+            this.importe_poliza.Name = "importe_poliza";
             // 
             // fecha
             // 
@@ -580,6 +626,185 @@
             this.observaciones.DataPropertyName = "observaciones";
             this.observaciones.HeaderText = "Observaciones";
             this.observaciones.Name = "observaciones";
+            // 
+            // tabPagos
+            // 
+            this.tabPagos.Controls.Add(this.pagoDataGridView);
+            this.tabPagos.Controls.Add(this.pagoBindingNavigator);
+            this.tabPagos.Location = new System.Drawing.Point(4, 22);
+            this.tabPagos.Name = "tabPagos";
+            this.tabPagos.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPagos.Size = new System.Drawing.Size(844, 429);
+            this.tabPagos.TabIndex = 2;
+            this.tabPagos.Text = "Pagos";
+            this.tabPagos.UseVisualStyleBackColor = true;
+            // 
+            // pagoDataGridView
+            // 
+            this.pagoDataGridView.AllowUserToAddRows = false;
+            this.pagoDataGridView.AutoGenerateColumns = false;
+            this.pagoDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.pagoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.pagoDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_pago,
+            this.fk_poliza,
+            this.importe_pago});
+            this.pagoDataGridView.DataSource = this.pagoBindingSource;
+            this.pagoDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pagoDataGridView.Location = new System.Drawing.Point(3, 31);
+            this.pagoDataGridView.Name = "pagoDataGridView";
+            this.pagoDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.pagoDataGridView.Size = new System.Drawing.Size(838, 395);
+            this.pagoDataGridView.TabIndex = 17;
+            // 
+            // id_pago
+            // 
+            this.id_pago.DataPropertyName = "id";
+            this.id_pago.HeaderText = "id";
+            this.id_pago.Name = "id_pago";
+            // 
+            // fk_poliza
+            // 
+            this.fk_poliza.DataPropertyName = "id_poliza";
+            this.fk_poliza.HeaderText = "id_poliza";
+            this.fk_poliza.Name = "fk_poliza";
+            // 
+            // importe_pago
+            // 
+            this.importe_pago.DataPropertyName = "importe";
+            this.importe_pago.HeaderText = "Importe (EUR)";
+            this.importe_pago.Name = "importe_pago";
+            // 
+            // pagoBindingSource
+            // 
+            this.pagoBindingSource.DataMember = "pago";
+            this.pagoBindingSource.DataSource = this.segurosDataSet;
+            // 
+            // pagoBindingNavigator
+            // 
+            this.pagoBindingNavigator.AddNewItem = this.bindingNavigatorAddNewPago;
+            this.pagoBindingNavigator.BindingSource = this.pagoBindingSource;
+            this.pagoBindingNavigator.CountItem = this.bindingNavigatorCountPago;
+            this.pagoBindingNavigator.DeleteItem = this.bindingNavigatorDeletePago;
+            this.pagoBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstPago,
+            this.bindingNavigatorMovePreviousPago,
+            this.toolStripSeparator5,
+            this.bindingNavigatorPositionPago,
+            this.bindingNavigatorCountPago,
+            this.toolStripSeparator6,
+            this.bindingNavigatorMoveNextPago,
+            this.bindingNavigatorMoveLastPago,
+            this.toolStripSeparator7,
+            this.bindingNavigatorAddNewPago,
+            this.bindingNavigatorDeletePago,
+            this.pagoBindingNavigatorSavePago});
+            this.pagoBindingNavigator.Location = new System.Drawing.Point(3, 3);
+            this.pagoBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstPago;
+            this.pagoBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastPago;
+            this.pagoBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextPago;
+            this.pagoBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousPago;
+            this.pagoBindingNavigator.Name = "pagoBindingNavigator";
+            this.pagoBindingNavigator.PositionItem = this.bindingNavigatorPositionPago;
+            this.pagoBindingNavigator.Size = new System.Drawing.Size(838, 25);
+            this.pagoBindingNavigator.TabIndex = 17;
+            this.pagoBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewPago
+            // 
+            this.bindingNavigatorAddNewPago.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewPago.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewPago.Image")));
+            this.bindingNavigatorAddNewPago.Name = "bindingNavigatorAddNewPago";
+            this.bindingNavigatorAddNewPago.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewPago.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewPago.Text = "Agregar nuevo";
+            this.bindingNavigatorAddNewPago.Click += new System.EventHandler(this.bindingNavigatorAddNewPago_Click);
+            // 
+            // bindingNavigatorCountPago
+            // 
+            this.bindingNavigatorCountPago.Name = "bindingNavigatorCountPago";
+            this.bindingNavigatorCountPago.Size = new System.Drawing.Size(37, 22);
+            this.bindingNavigatorCountPago.Text = "de {0}";
+            this.bindingNavigatorCountPago.ToolTipText = "Número total de elementos";
+            // 
+            // bindingNavigatorDeletePago
+            // 
+            this.bindingNavigatorDeletePago.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeletePago.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeletePago.Image")));
+            this.bindingNavigatorDeletePago.Name = "bindingNavigatorDeletePago";
+            this.bindingNavigatorDeletePago.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeletePago.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeletePago.Text = "Eliminar";
+            // 
+            // bindingNavigatorMoveFirstPago
+            // 
+            this.bindingNavigatorMoveFirstPago.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstPago.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstPago.Image")));
+            this.bindingNavigatorMoveFirstPago.Name = "bindingNavigatorMoveFirstPago";
+            this.bindingNavigatorMoveFirstPago.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstPago.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstPago.Text = "Mover primero";
+            // 
+            // bindingNavigatorMovePreviousPago
+            // 
+            this.bindingNavigatorMovePreviousPago.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousPago.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousPago.Image")));
+            this.bindingNavigatorMovePreviousPago.Name = "bindingNavigatorMovePreviousPago";
+            this.bindingNavigatorMovePreviousPago.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousPago.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousPago.Text = "Mover anterior";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorPositionPago
+            // 
+            this.bindingNavigatorPositionPago.AccessibleName = "Posición";
+            this.bindingNavigatorPositionPago.AutoSize = false;
+            this.bindingNavigatorPositionPago.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bindingNavigatorPositionPago.Name = "bindingNavigatorPositionPago";
+            this.bindingNavigatorPositionPago.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionPago.Text = "0";
+            this.bindingNavigatorPositionPago.ToolTipText = "Posición actual";
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorMoveNextPago
+            // 
+            this.bindingNavigatorMoveNextPago.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextPago.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextPago.Image")));
+            this.bindingNavigatorMoveNextPago.Name = "bindingNavigatorMoveNextPago";
+            this.bindingNavigatorMoveNextPago.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextPago.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextPago.Text = "Mover siguiente";
+            // 
+            // bindingNavigatorMoveLastPago
+            // 
+            this.bindingNavigatorMoveLastPago.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastPago.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastPago.Image")));
+            this.bindingNavigatorMoveLastPago.Name = "bindingNavigatorMoveLastPago";
+            this.bindingNavigatorMoveLastPago.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastPago.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastPago.Text = "Mover último";
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            // 
+            // pagoBindingNavigatorSavePago
+            // 
+            this.pagoBindingNavigatorSavePago.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.pagoBindingNavigatorSavePago.Image = ((System.Drawing.Image)(resources.GetObject("pagoBindingNavigatorSavePago.Image")));
+            this.pagoBindingNavigatorSavePago.Name = "pagoBindingNavigatorSavePago";
+            this.pagoBindingNavigatorSavePago.Size = new System.Drawing.Size(23, 22);
+            this.pagoBindingNavigatorSavePago.Text = "Guardar datos";
+            this.pagoBindingNavigatorSavePago.Click += new System.EventHandler(this.pagoBindingNavigatorSavePago_Click);
             // 
             // clienteTableAdapter
             // 
@@ -607,6 +832,19 @@
             this.polizaTableAdapterManager.UpdateOrder = ProyectoInterfaz.SegurosDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.polizaTableAdapterManager.usuarioTableAdapter = null;
             // 
+            // pagoTableAdapter
+            // 
+            this.pagoTableAdapter.ClearBeforeFill = true;
+            // 
+            // pagoTableAdapterManager
+            // 
+            this.pagoTableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.pagoTableAdapterManager.clienteTableAdapter = null;
+            this.pagoTableAdapterManager.pagoTableAdapter = this.pagoTableAdapter;
+            this.pagoTableAdapterManager.polizaTableAdapter = null;
+            this.pagoTableAdapterManager.UpdateOrder = ProyectoInterfaz.SegurosDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.pagoTableAdapterManager.usuarioTableAdapter = null;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -633,6 +871,13 @@
             this.polizaBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.polizaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.polizaDataGridView)).EndInit();
+            this.tabPagos.ResumeLayout(false);
+            this.tabPagos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pagoDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pagoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pagoBindingNavigator)).EndInit();
+            this.pagoBindingNavigator.ResumeLayout(false);
+            this.pagoBindingNavigator.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -678,7 +923,7 @@
         private System.Windows.Forms.DataGridView polizaDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_poliza;
         private System.Windows.Forms.DataGridViewTextBoxColumn fk_cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn importe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn importe_poliza;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn observaciones;
@@ -694,6 +939,28 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo_postal;
         private System.Windows.Forms.DataGridViewTextBoxColumn provincia;
         private System.Windows.Forms.DataGridViewCheckBoxColumn empresa;
+        private System.Windows.Forms.TabPage tabPagos;
+        private System.Windows.Forms.BindingNavigator pagoBindingNavigator;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewPago;
+        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountPago;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorDeletePago;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstPago;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousPago;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionPago;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextPago;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastPago;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripButton pagoBindingNavigatorSavePago;
+        private System.Windows.Forms.BindingSource pagoBindingSource;
+        private SegurosDataSetTableAdapters.pagoTableAdapter pagoTableAdapter;
+        private System.Windows.Forms.DataGridView pagoDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_pago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fk_poliza;
+        private System.Windows.Forms.DataGridViewTextBoxColumn importe_pago;
+        private SegurosDataSetTableAdapters.TableAdapterManager pagoTableAdapterManager;
+        private System.Windows.Forms.Label lblCliente;
     }
 }
 

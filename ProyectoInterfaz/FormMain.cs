@@ -7,8 +7,10 @@ namespace ProyectoInterfaz {
     public partial class FormMain: Form {
 
         private DateTimePicker cellDateTimePicker = new DateTimePicker();
-        private int idClientSelected;
-        private int currentRowSelected;
+        private ComboBox stateCombox = new ComboBox();
+        private Cliente currentClientSelected;
+        private Poliza currentPolizaSelected;
+        private int currentClientRowSelected;
 
         public FormMain() {
             InitializeComponent();
@@ -17,6 +19,17 @@ namespace ProyectoInterfaz {
             cellDateTimePicker.Visible = false;
             cellDateTimePicker.Format = DateTimePickerFormat.Custom;
             cellDateTimePicker.TextChanged += new EventHandler(cellDateTimePickerChanged);
+
+            polizaDataGridView.Controls.Add(stateCombox);
+            stateCombox.Visible = false;
+            stateCombox.FormattingEnabled = true;
+            stateCombox.Items.AddRange(new object[] {
+            "Cobrada",
+            "A cuenta",
+            "Liquidada",
+            "Pre Anulada",
+            "Anulada"});
+            stateCombox.Name = "State Combo";
 
         }
 
@@ -35,6 +48,8 @@ namespace ProyectoInterfaz {
         }
 
         private void Form1_Load(object sender,EventArgs e) {
+            // TODO: esta línea de código carga datos en la tabla 'segurosDataSet.pago' Puede moverla o quitarla según sea necesario.
+            this.pagoTableAdapter.Fill(this.segurosDataSet.pago);
             // TODO: esta línea de código carga datos en la tabla 'segurosDataSet.poliza' Puede moverla o quitarla según sea necesario.
             this.polizaTableAdapter.Fill(this.segurosDataSet.poliza);
             // TODO: esta línea de código carga datos en la tabla 'segurosDataSet.cliente' Puede moverla o quitarla según sea necesario.
@@ -43,14 +58,36 @@ namespace ProyectoInterfaz {
 
         private void polizaDataGridView_CellBeginEdit(object sender,DataGridViewCellCancelEventArgs e) {
 
-            if(polizaDataGridView.Columns[e.ColumnIndex].Name == "fecha") {
+            switch(polizaDataGridView.Columns[e.ColumnIndex].Name) {
+            
+                case "fecha":
 
-                var rectangle = polizaDataGridView.GetCellDisplayRectangle(e.ColumnIndex,e.RowIndex,true);
-                cellDateTimePicker.Size = new Size(rectangle.Width,rectangle.Height);
-                cellDateTimePicker.Location = new Point(rectangle.X,rectangle.Y);
-                cellDateTimePicker.Visible = true;
+                    var rectangleDate = polizaDataGridView.GetCellDisplayRectangle(e.ColumnIndex,e.RowIndex,true);
+                    cellDateTimePicker.Size = new Size(rectangleDate.Width,rectangleDate.Height);
+                    cellDateTimePicker.Location = new Point(rectangleDate.X,rectangleDate.Y);
+                    cellDateTimePicker.Visible = true;
 
-            }  
+                    if(polizaDataGridView.CurrentCell.Value.ToString() != "")
+                        cellDateTimePicker.Value = Convert.ToDateTime(polizaDataGridView.CurrentCell.Value.ToString());
+                    else
+                        cellDateTimePicker.Value = DateTime.Today;
+                break;
+
+                case "estado":
+
+                    var rectangleState = polizaDataGridView.GetCellDisplayRectangle(e.ColumnIndex,e.RowIndex,true);
+                    stateCombox.Size = new Size(rectangleState.Width,rectangleState.Height);
+                    stateCombox.Location = new Point(rectangleState.X,rectangleState.Y);
+                    stateCombox.Visible = true;
+
+                    if(polizaDataGridView.CurrentCell.Value.ToString() != "")
+                        stateCombox.SelectedItem = polizaDataGridView.CurrentCell.Value.ToString();
+                     else
+                        stateCombox.SelectedIndex = 0;
+
+                    break;
+
+            }
 
         }
 
@@ -63,14 +100,21 @@ namespace ProyectoInterfaz {
         }
 
         private void polizaDataGridView_CellEndEdit(object sender,DataGridViewCellEventArgs e) {
-            
-            if(polizaDataGridView.Columns[e.ColumnIndex].Name == "fecha") {
 
-                polizaDataGridView.CurrentCell.Value = cellDateTimePicker.Text.ToString();
-                cellDateTimePicker.Visible = false;
+            switch(polizaDataGridView.Columns[e.ColumnIndex].Name) {
+
+                case "fecha":
+                    polizaDataGridView.CurrentCell.Value = cellDateTimePicker.Text.ToString();
+                    cellDateTimePicker.Visible = false;
+                break;
+
+                case "estado":
+                    polizaDataGridView.CurrentCell.Value = stateCombox.Text.ToString();
+                    stateCombox.Visible = false;
+                break;
 
             }
-            
+
         }
 
         private void textBuscar_TextChanged(object sender,EventArgs e) {
@@ -81,17 +125,11 @@ namespace ProyectoInterfaz {
             
             if(clienteDataGridView != null && clienteDataGridView.SelectedRows.Count > 0) {
 
-                DataGridViewRow row = getRowSelected(clienteDataGridView);
-                Object value = row.Cells[0].Value;
-                
-                if(value != null)
-                    idClientSelected = Int32.Parse(value.ToString());
-                else
-                    idClientSelected = -1;
-                
-                polizaBindingSource.Filter = "id_cliente = '" + idClientSelected + "'";
+                currentClientSelected = getClientSelected();
+                polizaBindingSource.Filter = "id_cliente = '" + currentClientSelected.id + "'";
+                lblCliente.Text = currentClientSelected.nombre.ToUpper();
 
-                if(idClientSelected == -1 && tabMain.TabPages.Contains(tabPolizas)) {
+                if(currentClientSelected.id == -1 && tabMain.TabPages.Contains(tabPolizas)) {
 
                     tabMain.TabPages.Remove(tabPolizas);
 
@@ -102,9 +140,69 @@ namespace ProyectoInterfaz {
 
                 }
 
-                currentRowSelected = clienteDataGridView.CurrentCell.RowIndex;
+                currentClientRowSelected = clienteDataGridView.CurrentCell.RowIndex;
 
             }
+
+        }
+
+        private Cliente getClientSelected() {
+
+            DataGridViewRow row = getRowSelected(clienteDataGridView);
+            Cliente cliente = new Cliente();
+            cliente.id = toInt(row.Cells[0].Value);
+            cliente.nombre = toString(row.Cells[1].Value);
+            cliente.apellido = toString(row.Cells[2].Value);
+            cliente.telefono = toString(row.Cells[3].Value);
+            cliente.localidad = toString(row.Cells[4].Value);
+            cliente.codigoPostal = toInt(row.Cells[5].Value);
+            cliente.provincia = toString(row.Cells[6].Value);
+            cliente.empresa = toString(row.Cells[7].Value) == "True";
+            
+            return cliente;
+
+        }
+
+        private Poliza getPolizaSelected() {
+
+            DataGridViewRow row = getRowSelected(polizaDataGridView);
+            Poliza poliza = new Poliza();
+            poliza.id = toInt(row.Cells[0].Value);
+            poliza.idCliente = toInt(row.Cells[1].Value);
+            poliza.importe = toFloat(row.Cells[2].Value);
+            poliza.fecha = toString(row.Cells[3].Value);
+            poliza.estado = toString(row.Cells[4].Value);
+            poliza.observaciones = toString(row.Cells[5].Value);
+
+            return poliza;
+
+        }
+
+        private string toString(object obj){
+        
+            if(obj != null)
+                return obj.ToString();
+
+            return "";
+
+        }
+
+        private int toInt(object obj) {
+            
+            if(obj != null && obj.ToString() != "")
+                return Int32.Parse(obj.ToString());
+
+            return -1;
+
+        }
+
+        private float toFloat(object obj) {
+
+            if(obj != null && obj.ToString() != "")
+                return float.Parse(obj.ToString());
+
+            return -1;
+
         }
 
         private DataGridViewRow getRowSelected(DataGridView view) {
@@ -116,11 +214,65 @@ namespace ProyectoInterfaz {
 
         private void clienteDataGridView_CellMouseDoubleClick(object sender,DataGridViewCellMouseEventArgs e) {
 
-            if(idClientSelected != -1)
+            if(currentClientSelected.id != -1)
                 tabMain.SelectedTab = tabPolizas;
 
         }
 
+        private void pagoBindingNavigatorSavePago_Click(object sender,EventArgs e) {
+            this.Validate();
+            this.pagoBindingSource.EndEdit();
+            this.pagoTableAdapterManager.UpdateAll(this.segurosDataSet);
+            this.pagoTableAdapter.Fill(this.segurosDataSet.pago);
+        }
+
+        private void bindingNavigatorAddNewPoliza_Click(object sender,EventArgs e) {
+            
+            polizaDataGridView.CurrentRow.Cells[0].Value = 0;
+            polizaDataGridView.CurrentRow.Cells[1].Value = currentClientSelected.id;
+            polizaDataGridView.CurrentRow.Cells[3].Value = DateTime.Today;
+            polizaDataGridView.CurrentRow.Cells[4].Value = "A cuenta";
+
+        }
+
+        private void polizaDataGridView_RowStateChanged(object sender,DataGridViewRowStateChangedEventArgs e) {
+
+            if(polizaDataGridView != null && polizaDataGridView.SelectedRows.Count > 0) {
+
+                currentPolizaSelected = getPolizaSelected();
+                pagoBindingSource.Filter = "id_poliza = '" + currentPolizaSelected.id + "'";
+                //lblCliente.Text = currentClientSelected.nombre.ToUpper();
+
+                if(currentPolizaSelected.id == -1 && tabMain.TabPages.Contains(tabPagos)) {
+
+                    tabMain.TabPages.Remove(tabPagos);
+
+                } else {
+
+                    if(!tabMain.TabPages.Contains(tabPagos))
+                        tabMain.TabPages.Add(tabPagos);
+
+                }
+
+                //currentRowSelected = clienteDataGridView.CurrentCell.RowIndex;
+
+            }
+
+        }
+
+        private void bindingNavigatorAddNewPago_Click(object sender,EventArgs e) {
+
+            pagoDataGridView.CurrentRow.Cells[0].Value = 0;
+            pagoDataGridView.CurrentRow.Cells[1].Value = currentPolizaSelected.id;
+
+        }
+
+        private void polizaDataGridView_CellMouseDoubleClick(object sender,DataGridViewCellMouseEventArgs e) {
+
+            if(currentPolizaSelected.id != -1)
+                tabMain.SelectedTab = tabPagos;
+
+        }
     }
 
 }

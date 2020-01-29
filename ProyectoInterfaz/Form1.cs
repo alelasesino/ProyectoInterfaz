@@ -32,23 +32,26 @@ namespace ProyectoInterfaz {
 
         private void polizaBindingNavigatorSaveItem_Click(object sender,EventArgs e) {
             this.Validate();
-            this.polizaBindingSource.EndEdit();
-            this.polizaTableAdapterManager.UpdateAll(this.segurosDataSet);
+            
+            pagoBindingSource.Position = pagoBindingSource.Find("", "");
 
         }
 
         private void Form1_Load(object sender,EventArgs e) {
-            // TODO: esta línea de código carga datos en la tabla 'segurosDataSet.poliza' Puede moverla o quitarla según sea necesario.
-            this.polizaTableAdapter.Fill(this.segurosDataSet.poliza);
-            // TODO: esta línea de código carga datos en la tabla 'segurosDataSet.poliza' Puede moverla o quitarla según sea necesario.
-            this.polizaTableAdapter.Fill(this.segurosDataSet.poliza);
+            // TODO: esta línea de código carga datos en la tabla 'segurosDataSet.pago' Puede moverla o quitarla según sea necesario.
+            this.pagoTableAdapter.Fill(this.segurosDataSet.pago);
 
         }
 
         private void polizaBindingNavigatorSaveItem_Click_1(object sender,EventArgs e) {
             this.Validate();
-            this.polizaBindingSource.EndEdit();
-            this.polizaTableAdapterManager.UpdateAll(this.segurosDataSet);
+
+        }
+
+        private void pagoBindingNavigatorSaveItem_Click(object sender,EventArgs e) {
+            this.Validate();
+            this.pagoBindingSource.EndEdit();
+            this.pagoTableAdapterManager.UpdateAll(this.segurosDataSet);
 
         }
     }

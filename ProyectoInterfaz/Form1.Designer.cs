@@ -42,34 +42,32 @@
             this.btAceptar = new System.Windows.Forms.Button();
             this.btCancelar = new System.Windows.Forms.Button();
             this.segurosDataSet = new ProyectoInterfaz.SegurosDataSet();
-            this.polizaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.polizaTableAdapter = new ProyectoInterfaz.SegurosDataSetTableAdapters.polizaTableAdapter();
-            this.polizaTableAdapterManager = new ProyectoInterfaz.SegurosDataSetTableAdapters.TableAdapterManager();
-            this.polizaBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.pagoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pagoTableAdapter = new ProyectoInterfaz.SegurosDataSetTableAdapters.pagoTableAdapter();
+            this.pagoTableAdapterManager = new ProyectoInterfaz.SegurosDataSetTableAdapters.TableAdapterManager();
+            this.pagoBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.polizaBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.polizaDataGridView = new System.Windows.Forms.DataGridView();
+            this.pagoBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.pagoDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.segurosDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.polizaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.polizaBindingNavigator)).BeginInit();
-            this.polizaBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.polizaDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pagoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pagoBindingNavigator)).BeginInit();
+            this.pagoBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pagoDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // textNombre
@@ -216,31 +214,31 @@
             this.segurosDataSet.DataSetName = "SegurosDataSet";
             this.segurosDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // polizaBindingSource
+            // pagoBindingSource
             // 
-            this.polizaBindingSource.DataMember = "poliza";
-            this.polizaBindingSource.DataSource = this.segurosDataSet;
+            this.pagoBindingSource.DataMember = "pago";
+            this.pagoBindingSource.DataSource = this.segurosDataSet;
             // 
-            // polizaTableAdapter
+            // pagoTableAdapter
             // 
-            this.polizaTableAdapter.ClearBeforeFill = true;
+            this.pagoTableAdapter.ClearBeforeFill = true;
             // 
-            // polizaTableAdapterManager
+            // pagoTableAdapterManager
             // 
-            this.polizaTableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.polizaTableAdapterManager.clienteTableAdapter = null;
-            this.polizaTableAdapterManager.pagoTableAdapter = null;
-            this.polizaTableAdapterManager.polizaTableAdapter = this.polizaTableAdapter;
-            this.polizaTableAdapterManager.UpdateOrder = ProyectoInterfaz.SegurosDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.polizaTableAdapterManager.usuarioTableAdapter = null;
+            this.pagoTableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.pagoTableAdapterManager.clienteTableAdapter = null;
+            this.pagoTableAdapterManager.pagoTableAdapter = this.pagoTableAdapter;
+            this.pagoTableAdapterManager.polizaTableAdapter = null;
+            this.pagoTableAdapterManager.UpdateOrder = ProyectoInterfaz.SegurosDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.pagoTableAdapterManager.usuarioTableAdapter = null;
             // 
-            // polizaBindingNavigator
+            // pagoBindingNavigator
             // 
-            this.polizaBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.polizaBindingNavigator.BindingSource = this.polizaBindingSource;
-            this.polizaBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.polizaBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.polizaBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pagoBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.pagoBindingNavigator.BindingSource = this.pagoBindingSource;
+            this.pagoBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+            this.pagoBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.pagoBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
@@ -252,17 +250,42 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.polizaBindingNavigatorSaveItem});
-            this.polizaBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.polizaBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.polizaBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.polizaBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.polizaBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.polizaBindingNavigator.Name = "polizaBindingNavigator";
-            this.polizaBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.polizaBindingNavigator.Size = new System.Drawing.Size(890, 25);
-            this.polizaBindingNavigator.TabIndex = 16;
-            this.polizaBindingNavigator.Text = "bindingNavigator1";
+            this.pagoBindingNavigatorSaveItem});
+            this.pagoBindingNavigator.Location = new System.Drawing.Point(0, 0);
+            this.pagoBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.pagoBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.pagoBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.pagoBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.pagoBindingNavigator.Name = "pagoBindingNavigator";
+            this.pagoBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+            this.pagoBindingNavigator.Size = new System.Drawing.Size(890, 25);
+            this.pagoBindingNavigator.TabIndex = 16;
+            this.pagoBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
+            this.bindingNavigatorCountItem.Text = "de {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Eliminar";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -297,16 +320,9 @@
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Posición actual";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
-            this.bindingNavigatorCountItem.Text = "de {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
@@ -329,52 +345,31 @@
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // bindingNavigatorAddNewItem
+            // pagoBindingNavigatorSaveItem
             // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
+            this.pagoBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.pagoBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("pagoBindingNavigatorSaveItem.Image")));
+            this.pagoBindingNavigatorSaveItem.Name = "pagoBindingNavigatorSaveItem";
+            this.pagoBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.pagoBindingNavigatorSaveItem.Text = "Guardar datos";
+            this.pagoBindingNavigatorSaveItem.Click += new System.EventHandler(this.pagoBindingNavigatorSaveItem_Click);
             // 
-            // bindingNavigatorDeleteItem
+            // pagoDataGridView
             // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Eliminar";
-            // 
-            // polizaBindingNavigatorSaveItem
-            // 
-            this.polizaBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.polizaBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("polizaBindingNavigatorSaveItem.Image")));
-            this.polizaBindingNavigatorSaveItem.Name = "polizaBindingNavigatorSaveItem";
-            this.polizaBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.polizaBindingNavigatorSaveItem.Text = "Guardar datos";
-            this.polizaBindingNavigatorSaveItem.Click += new System.EventHandler(this.polizaBindingNavigatorSaveItem_Click_1);
-            // 
-            // polizaDataGridView
-            // 
-            this.polizaDataGridView.AutoGenerateColumns = false;
-            this.polizaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.polizaDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pagoDataGridView.AutoGenerateColumns = false;
+            this.pagoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.pagoDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
-            this.polizaDataGridView.DataSource = this.polizaBindingSource;
-            this.polizaDataGridView.Location = new System.Drawing.Point(548, 158);
-            this.polizaDataGridView.Name = "polizaDataGridView";
-            this.polizaDataGridView.Size = new System.Drawing.Size(300, 220);
-            this.polizaDataGridView.TabIndex = 17;
+            this.dataGridViewTextBoxColumn3});
+            this.pagoDataGridView.DataSource = this.pagoBindingSource;
+            this.pagoDataGridView.Location = new System.Drawing.Point(556, 159);
+            this.pagoDataGridView.Name = "pagoDataGridView";
+            this.pagoDataGridView.Size = new System.Drawing.Size(300, 220);
+            this.pagoDataGridView.TabIndex = 17;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -384,8 +379,8 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "id_cliente";
-            this.dataGridViewTextBoxColumn2.HeaderText = "id_cliente";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "id_poliza";
+            this.dataGridViewTextBoxColumn2.HeaderText = "id_poliza";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // dataGridViewTextBoxColumn3
@@ -394,23 +389,19 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "importe";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // dataGridViewTextBoxColumn4
+            // comboBox1
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "fecha";
-            this.dataGridViewTextBoxColumn4.HeaderText = "fecha";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "estado";
-            this.dataGridViewTextBoxColumn5.HeaderText = "estado";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "observaciones";
-            this.dataGridViewTextBoxColumn6.HeaderText = "observaciones";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Cobrada",
+            "A cuenta",
+            "Liquidada",
+            "Pre Anulada",
+            "Anulada"});
+            this.comboBox1.Location = new System.Drawing.Point(483, 73);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 18;
             // 
             // Form1
             // 
@@ -418,9 +409,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btCancelar;
-            this.ClientSize = new System.Drawing.Size(890, 398);
-            this.Controls.Add(this.polizaDataGridView);
-            this.Controls.Add(this.polizaBindingNavigator);
+            this.ClientSize = new System.Drawing.Size(890, 399);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.pagoDataGridView);
+            this.Controls.Add(this.pagoBindingNavigator);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.btAceptar);
             this.Controls.Add(this.radioButton2);
@@ -441,11 +433,11 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.segurosDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.polizaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.polizaBindingNavigator)).EndInit();
-            this.polizaBindingNavigator.ResumeLayout(false);
-            this.polizaBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.polizaDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pagoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pagoBindingNavigator)).EndInit();
+            this.pagoBindingNavigator.ResumeLayout(false);
+            this.pagoBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pagoDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -470,10 +462,10 @@
         private System.Windows.Forms.Button btAceptar;
         private System.Windows.Forms.Button btCancelar;
         private SegurosDataSet segurosDataSet;
-        private System.Windows.Forms.BindingSource polizaBindingSource;
-        private SegurosDataSetTableAdapters.polizaTableAdapter polizaTableAdapter;
-        private SegurosDataSetTableAdapters.TableAdapterManager polizaTableAdapterManager;
-        private System.Windows.Forms.BindingNavigator polizaBindingNavigator;
+        private System.Windows.Forms.BindingSource pagoBindingSource;
+        private SegurosDataSetTableAdapters.pagoTableAdapter pagoTableAdapter;
+        private SegurosDataSetTableAdapters.TableAdapterManager pagoTableAdapterManager;
+        private System.Windows.Forms.BindingNavigator pagoBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
@@ -485,13 +477,11 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton polizaBindingNavigatorSaveItem;
-        private System.Windows.Forms.DataGridView polizaDataGridView;
+        private System.Windows.Forms.ToolStripButton pagoBindingNavigatorSaveItem;
+        private System.Windows.Forms.DataGridView pagoDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
