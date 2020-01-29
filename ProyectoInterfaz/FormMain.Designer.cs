@@ -108,7 +108,6 @@
             this.tabMain.SelectedIndex = 0;
             this.tabMain.Size = new System.Drawing.Size(852, 455);
             this.tabMain.TabIndex = 0;
-            this.tabMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabMain_Selecting);
             // 
             // tabClientes
             // 
@@ -217,7 +216,6 @@
             // 
             this.bindingNavigatorPositionCliente.AccessibleName = "Posición";
             this.bindingNavigatorPositionCliente.AutoSize = false;
-            this.bindingNavigatorPositionCliente.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionCliente.Name = "bindingNavigatorPositionCliente";
             this.bindingNavigatorPositionCliente.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionCliente.Text = "0";
@@ -273,7 +271,7 @@
             // 
             // textBuscar
             // 
-            this.textBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBuscar.Name = "textBuscar";
             this.textBuscar.Size = new System.Drawing.Size(170, 25);
             this.textBuscar.TextChanged += new System.EventHandler(this.textBuscar_TextChanged);
@@ -480,7 +478,6 @@
             // 
             this.bindingNavigatorPositionPoliza.AccessibleName = "Posición";
             this.bindingNavigatorPositionPoliza.AutoSize = false;
-            this.bindingNavigatorPositionPoliza.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionPoliza.Name = "bindingNavigatorPositionPoliza";
             this.bindingNavigatorPositionPoliza.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionPoliza.Text = "0";
@@ -545,7 +542,6 @@
             this.polizaDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.polizaDataGridView.Size = new System.Drawing.Size(838, 395);
             this.polizaDataGridView.TabIndex = 18;
-            this.polizaDataGridView.CancelRowEdit += new System.Windows.Forms.QuestionEventHandler(this.polizaDataGridView_CancelRowEdit);
             this.polizaDataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.polizaDataGridView_CellBeginEdit);
             this.polizaDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.polizaDataGridView_CellEndEdit);
             // 

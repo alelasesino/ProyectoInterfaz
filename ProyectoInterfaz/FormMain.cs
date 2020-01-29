@@ -8,6 +8,7 @@ namespace ProyectoInterfaz {
 
         private DateTimePicker cellDateTimePicker = new DateTimePicker();
         private int idClientSelected;
+        private int currentRowSelected;
 
         public FormMain() {
             InitializeComponent();
@@ -23,27 +24,19 @@ namespace ProyectoInterfaz {
             this.Validate();
             this.clienteBindingSource.EndEdit();
             this.clienteTableAdapterManager.UpdateAll(this.segurosDataSet);
+            this.clienteTableAdapter.Fill(this.segurosDataSet.cliente);
         }
 
         private void polizaBindingNavigatorSaveItem_Click(object sender,EventArgs e) {
             this.Validate();
             this.polizaBindingSource.EndEdit();
-
-            try{
-                this.polizaTableAdapterManager.UpdateAll(this.segurosDataSet);
-                this.polizaBindingSource.DataMember = "poliza";
-                this.polizaBindingSource.DataSource = this.segurosDataSet;
-                //MessageBox.Show("Guardado correctamente");
-            } catch(Exception err){
-                MessageBox.Show("Error al guardar: " + err.Message);
-            }
-
+            this.polizaTableAdapterManager.UpdateAll(this.segurosDataSet);
+            this.polizaTableAdapter.Fill(this.segurosDataSet.poliza);
         }
 
         private void Form1_Load(object sender,EventArgs e) {
             // TODO: esta línea de código carga datos en la tabla 'segurosDataSet.poliza' Puede moverla o quitarla según sea necesario.
             this.polizaTableAdapter.Fill(this.segurosDataSet.poliza);
-            //this.polizaDataGridView.Columns[0].Visible = false;
             // TODO: esta línea de código carga datos en la tabla 'segurosDataSet.cliente' Puede moverla o quitarla según sea necesario.
             this.clienteTableAdapter.Fill(this.segurosDataSet.cliente);
         }
@@ -109,6 +102,8 @@ namespace ProyectoInterfaz {
 
                 }
 
+                currentRowSelected = clienteDataGridView.CurrentCell.RowIndex;
+
             }
         }
 
@@ -126,14 +121,6 @@ namespace ProyectoInterfaz {
 
         }
 
-        private void tabMain_Selecting(object sender,TabControlCancelEventArgs e) {
-
-            /*if(e.TabPage == tabPolizas && idClientSelected == -1) {
-                MessageBox.Show("Selecciona un cliente", "Error");
-                e.Cancel = true;
-            }*/
-
-        }
     }
 
 }
