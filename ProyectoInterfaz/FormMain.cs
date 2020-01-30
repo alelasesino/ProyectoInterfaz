@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
@@ -28,7 +29,7 @@ namespace ProyectoInterfaz {
             "Cobrada",
             "A cuenta",
             "Liquidada",
-            "Pre Anulada",
+            "Pre anulada",
             "Anulada"});
             stateCombox.Name = "State Combo";
             stateCombox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -120,7 +121,7 @@ namespace ProyectoInterfaz {
         }
 
         private void textBuscar_TextChanged(object sender,EventArgs e) {
-            clienteBindingSource.Filter = "nombre LIKE '*" + textBuscar.Text + "*'";
+            clienteBindingSource.Filter = "nombre LIKE '*" + textBuscarCliente.Text + "*'";
         }
 
         private void clienteDataGridView_RowStateChanged(object sender,DataGridViewRowStateChangedEventArgs e) {
@@ -217,8 +218,10 @@ namespace ProyectoInterfaz {
 
         private void clienteDataGridView_CellMouseDoubleClick(object sender,DataGridViewCellMouseEventArgs e) {
 
-            if(currentClientSelected.id != -1)
+            if(currentClientSelected.id != -1) {
                 tabMain.SelectedTab = tabPolizas;
+                polizaDataGridView.Sort(this.polizaDataGridView.Columns["fecha"],ListSortDirection.Descending);
+            }
 
         }
 
@@ -290,18 +293,23 @@ namespace ProyectoInterfaz {
             bgColor["A cuenta"] = ColorTranslator.FromHtml("#FF8989");
             bgColor["Cobrada"] = ColorTranslator.FromHtml("#96FF99");
             bgColor["Liquidada"] = ColorTranslator.FromHtml("#A2FFF2");
-            bgColor["Pre Anulada"] = ColorTranslator.FromHtml("#9DCEFF");
+            bgColor["Pre anulada"] = ColorTranslator.FromHtml("#9DCEFF");
             bgColor["Anulada"] = ColorTranslator.FromHtml("#EEB0FF");
 
             foreach(DataGridViewRow row in polizaDataGridView.Rows) {
                 
                 string state = toString(row.Cells["estado"].Value);
+
                 if(state != ""){
                     row.DefaultCellStyle.BackColor = bgColor[state];
                    //row.DefaultCellStyle.ForeColor = fontColor[state];
                 }
 
             }
+
+        }
+
+        private void informeCliente_Click(object sender,EventArgs e) {
 
         }
     }
