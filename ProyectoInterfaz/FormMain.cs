@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
@@ -10,7 +11,7 @@ namespace ProyectoInterfaz {
         private ComboBox stateCombox = new ComboBox();
         private Cliente currentClientSelected;
         private Poliza currentPolizaSelected;
-        private int currentClientRowSelected;
+        //private int currentClientRowSelected;
 
         public FormMain() {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace ProyectoInterfaz {
             "Pre Anulada",
             "Anulada"});
             stateCombox.Name = "State Combo";
+            stateCombox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 
         }
 
@@ -127,7 +129,8 @@ namespace ProyectoInterfaz {
 
                 currentClientSelected = getClientSelected();
                 polizaBindingSource.Filter = "id_cliente = '" + currentClientSelected.id + "'";
-                lblCliente.Text = currentClientSelected.nombre.ToUpper();
+                lblClientePolizas.Text = currentClientSelected.nombre.ToUpper();
+                lblClientePagos.Text = lblClientePolizas.Text;
 
                 if(currentClientSelected.id == -1 && tabMain.TabPages.Contains(tabPolizas)) {
 
@@ -140,7 +143,7 @@ namespace ProyectoInterfaz {
 
                 }
 
-                currentClientRowSelected = clienteDataGridView.CurrentCell.RowIndex;
+                //currentClientRowSelected = clienteDataGridView.CurrentCell.RowIndex;
 
             }
 
@@ -228,7 +231,7 @@ namespace ProyectoInterfaz {
 
         private void bindingNavigatorAddNewPoliza_Click(object sender,EventArgs e) {
             
-            polizaDataGridView.CurrentRow.Cells[0].Value = 0;
+            //polizaDataGridView.CurrentRow.Cells[0].Value = 0;
             polizaDataGridView.CurrentRow.Cells[1].Value = currentClientSelected.id;
             polizaDataGridView.CurrentRow.Cells[3].Value = DateTime.Today;
             polizaDataGridView.CurrentRow.Cells[4].Value = "A cuenta";
@@ -242,7 +245,7 @@ namespace ProyectoInterfaz {
                 currentPolizaSelected = getPolizaSelected();
                 pagoBindingSource.Filter = "id_poliza = '" + currentPolizaSelected.id + "'";
                 //lblCliente.Text = currentClientSelected.nombre.ToUpper();
-
+                
                 if(currentPolizaSelected.id == -1 && tabMain.TabPages.Contains(tabPagos)) {
 
                     tabMain.TabPages.Remove(tabPagos);
@@ -262,7 +265,7 @@ namespace ProyectoInterfaz {
 
         private void bindingNavigatorAddNewPago_Click(object sender,EventArgs e) {
 
-            pagoDataGridView.CurrentRow.Cells[0].Value = 0;
+            //pagoDataGridView.CurrentRow.Cells[0].Value = 0;
             pagoDataGridView.CurrentRow.Cells[1].Value = currentPolizaSelected.id;
 
         }
@@ -271,6 +274,34 @@ namespace ProyectoInterfaz {
 
             if(currentPolizaSelected.id != -1)
                 tabMain.SelectedTab = tabPagos;
+
+        }
+
+        private void polizaDataGridView_CellFormatting(object sender,DataGridViewCellFormattingEventArgs e) {
+            
+            /*IDictionary<string,Color> fontColor = new Dictionary<string,Color>();
+            fontColor["A cuenta"] = ColorTranslator.FromHtml("#000000");
+            fontColor["Cobrada"] = ColorTranslator.FromHtml("#000000");
+            fontColor["Liquidada"] = ColorTranslator.FromHtml("#000000");
+            fontColor["Pre Anulada"] = ColorTranslator.FromHtml("#000000");
+            fontColor["Anulada"] = ColorTranslator.FromHtml("#000000");*/
+
+            IDictionary<string,Color> bgColor = new Dictionary<string,Color>();
+            bgColor["A cuenta"] = ColorTranslator.FromHtml("#FF8989");
+            bgColor["Cobrada"] = ColorTranslator.FromHtml("#96FF99");
+            bgColor["Liquidada"] = ColorTranslator.FromHtml("#A2FFF2");
+            bgColor["Pre Anulada"] = ColorTranslator.FromHtml("#9DCEFF");
+            bgColor["Anulada"] = ColorTranslator.FromHtml("#EEB0FF");
+
+            foreach(DataGridViewRow row in polizaDataGridView.Rows) {
+                
+                string state = toString(row.Cells["estado"].Value);
+                if(state != ""){
+                    row.DefaultCellStyle.BackColor = bgColor[state];
+                   //row.DefaultCellStyle.ForeColor = fontColor[state];
+                }
+
+            }
 
         }
     }

@@ -25,10 +25,18 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabClientes = new System.Windows.Forms.TabPage();
             this.clienteBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
@@ -59,7 +67,7 @@
             this.provincia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empresa = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabPolizas = new System.Windows.Forms.TabPage();
-            this.lblCliente = new System.Windows.Forms.Label();
+            this.lblClientePolizas = new System.Windows.Forms.Label();
             this.polizaBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewPoliza = new System.Windows.Forms.ToolStripButton();
             this.polizaBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -82,13 +90,10 @@
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.observaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPagos = new System.Windows.Forms.TabPage();
-            this.pagoDataGridView = new System.Windows.Forms.DataGridView();
-            this.id_pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fk_poliza = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.importe_pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pagoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lblClientePagos = new System.Windows.Forms.Label();
             this.pagoBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewPago = new System.Windows.Forms.ToolStripButton();
+            this.pagoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountPago = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeletePago = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstPago = new System.Windows.Forms.ToolStripButton();
@@ -100,6 +105,10 @@
             this.bindingNavigatorMoveLastPago = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.pagoBindingNavigatorSavePago = new System.Windows.Forms.ToolStripButton();
+            this.pagoDataGridView = new System.Windows.Forms.DataGridView();
+            this.id_pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fk_poliza = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.importe_pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clienteTableAdapter = new ProyectoInterfaz.SegurosDataSetTableAdapters.clienteTableAdapter();
             this.clienteTableAdapterManager = new ProyectoInterfaz.SegurosDataSetTableAdapters.TableAdapterManager();
             this.polizaTableAdapter = new ProyectoInterfaz.SegurosDataSetTableAdapters.polizaTableAdapter();
@@ -119,10 +128,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.polizaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.polizaDataGridView)).BeginInit();
             this.tabPagos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pagoDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pagoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pagoBindingNavigator)).BeginInit();
             this.pagoBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pagoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pagoDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tabMain
@@ -244,7 +253,6 @@
             // 
             this.bindingNavigatorPositionCliente.AccessibleName = "Posición";
             this.bindingNavigatorPositionCliente.AutoSize = false;
-            this.bindingNavigatorPositionCliente.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionCliente.Name = "bindingNavigatorPositionCliente";
             this.bindingNavigatorPositionCliente.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionCliente.Text = "0";
@@ -301,7 +309,6 @@
             // textBuscar
             // 
             this.textBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBuscar.Name = "textBuscar";
             this.textBuscar.Size = new System.Drawing.Size(170, 25);
             this.textBuscar.TextChanged += new System.EventHandler(this.textBuscar_TextChanged);
@@ -310,20 +317,20 @@
             // 
             this.clienteDataGridView.AllowUserToAddRows = false;
             this.clienteDataGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(221)))), ((int)(((byte)(181)))));
-            this.clienteDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(221)))), ((int)(((byte)(181)))));
+            this.clienteDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.clienteDataGridView.AutoGenerateColumns = false;
             this.clienteDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.clienteDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(150)))));
             this.clienteDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(97)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.clienteDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(97)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.clienteDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.clienteDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.clienteDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_cliente,
@@ -335,26 +342,26 @@
             this.provincia,
             this.empresa});
             this.clienteDataGridView.DataSource = this.clienteBindingSource;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(150)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(125)))), ((int)(((byte)(18)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.clienteDataGridView.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(150)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(125)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.clienteDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.clienteDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.clienteDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(150)))));
             this.clienteDataGridView.Location = new System.Drawing.Point(3, 31);
             this.clienteDataGridView.Name = "clienteDataGridView";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(125)))), ((int)(((byte)(18)))));
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.clienteDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(125)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.clienteDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.clienteDataGridView.RowHeadersVisible = false;
             this.clienteDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.clienteDataGridView.Size = new System.Drawing.Size(838, 395);
@@ -412,7 +419,7 @@
             // 
             // tabPolizas
             // 
-            this.tabPolizas.Controls.Add(this.lblCliente);
+            this.tabPolizas.Controls.Add(this.lblClientePolizas);
             this.tabPolizas.Controls.Add(this.polizaBindingNavigator);
             this.tabPolizas.Controls.Add(this.polizaDataGridView);
             this.tabPolizas.Location = new System.Drawing.Point(4, 22);
@@ -423,15 +430,15 @@
             this.tabPolizas.Text = " Polizas";
             this.tabPolizas.UseVisualStyleBackColor = true;
             // 
-            // lblCliente
+            // lblClientePolizas
             // 
-            this.lblCliente.AutoSize = true;
-            this.lblCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCliente.Location = new System.Drawing.Point(7, 40);
-            this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(79, 29);
-            this.lblCliente.TabIndex = 19;
-            this.lblCliente.Text = "label1";
+            this.lblClientePolizas.AutoSize = true;
+            this.lblClientePolizas.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientePolizas.Location = new System.Drawing.Point(7, 40);
+            this.lblClientePolizas.Name = "lblClientePolizas";
+            this.lblClientePolizas.Size = new System.Drawing.Size(89, 29);
+            this.lblClientePolizas.TabIndex = 19;
+            this.lblClientePolizas.Text = "Cliente";
             // 
             // polizaBindingNavigator
             // 
@@ -521,7 +528,6 @@
             // 
             this.bindingNavigatorPositionPoliza.AccessibleName = "Posición";
             this.bindingNavigatorPositionPoliza.AutoSize = false;
-            this.bindingNavigatorPositionPoliza.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionPoliza.Name = "bindingNavigatorPositionPoliza";
             this.bindingNavigatorPositionPoliza.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionPoliza.Text = "0";
@@ -568,8 +574,20 @@
             // 
             this.polizaDataGridView.AllowUserToAddRows = false;
             this.polizaDataGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(221)))), ((int)(((byte)(181)))));
+            this.polizaDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.polizaDataGridView.AutoGenerateColumns = false;
             this.polizaDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.polizaDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(150)))));
+            this.polizaDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(97)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.polizaDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.polizaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.polizaDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_poliza,
@@ -579,15 +597,33 @@
             this.estado,
             this.observaciones});
             this.polizaDataGridView.DataSource = this.polizaBindingSource;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(150)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(125)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.polizaDataGridView.DefaultCellStyle = dataGridViewCellStyle7;
             this.polizaDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.polizaDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(150)))));
             this.polizaDataGridView.Location = new System.Drawing.Point(3, 80);
             this.polizaDataGridView.Name = "polizaDataGridView";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(125)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.polizaDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.polizaDataGridView.RowHeadersVisible = false;
             this.polizaDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.polizaDataGridView.Size = new System.Drawing.Size(838, 346);
             this.polizaDataGridView.TabIndex = 18;
             this.polizaDataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.polizaDataGridView_CellBeginEdit);
             this.polizaDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.polizaDataGridView_CellEndEdit);
+            this.polizaDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.polizaDataGridView_CellFormatting);
             this.polizaDataGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.polizaDataGridView_CellMouseDoubleClick);
             this.polizaDataGridView.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.polizaDataGridView_RowStateChanged);
             // 
@@ -629,8 +665,9 @@
             // 
             // tabPagos
             // 
-            this.tabPagos.Controls.Add(this.pagoDataGridView);
+            this.tabPagos.Controls.Add(this.lblClientePagos);
             this.tabPagos.Controls.Add(this.pagoBindingNavigator);
+            this.tabPagos.Controls.Add(this.pagoDataGridView);
             this.tabPagos.Location = new System.Drawing.Point(4, 22);
             this.tabPagos.Name = "tabPagos";
             this.tabPagos.Padding = new System.Windows.Forms.Padding(3);
@@ -639,46 +676,15 @@
             this.tabPagos.Text = "Pagos";
             this.tabPagos.UseVisualStyleBackColor = true;
             // 
-            // pagoDataGridView
+            // lblClientePagos
             // 
-            this.pagoDataGridView.AllowUserToAddRows = false;
-            this.pagoDataGridView.AutoGenerateColumns = false;
-            this.pagoDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.pagoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.pagoDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_pago,
-            this.fk_poliza,
-            this.importe_pago});
-            this.pagoDataGridView.DataSource = this.pagoBindingSource;
-            this.pagoDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pagoDataGridView.Location = new System.Drawing.Point(3, 31);
-            this.pagoDataGridView.Name = "pagoDataGridView";
-            this.pagoDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.pagoDataGridView.Size = new System.Drawing.Size(838, 395);
-            this.pagoDataGridView.TabIndex = 17;
-            // 
-            // id_pago
-            // 
-            this.id_pago.DataPropertyName = "id";
-            this.id_pago.HeaderText = "id";
-            this.id_pago.Name = "id_pago";
-            // 
-            // fk_poliza
-            // 
-            this.fk_poliza.DataPropertyName = "id_poliza";
-            this.fk_poliza.HeaderText = "id_poliza";
-            this.fk_poliza.Name = "fk_poliza";
-            // 
-            // importe_pago
-            // 
-            this.importe_pago.DataPropertyName = "importe";
-            this.importe_pago.HeaderText = "Importe (EUR)";
-            this.importe_pago.Name = "importe_pago";
-            // 
-            // pagoBindingSource
-            // 
-            this.pagoBindingSource.DataMember = "pago";
-            this.pagoBindingSource.DataSource = this.segurosDataSet;
+            this.lblClientePagos.AutoSize = true;
+            this.lblClientePagos.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientePagos.Location = new System.Drawing.Point(7, 40);
+            this.lblClientePagos.Name = "lblClientePagos";
+            this.lblClientePagos.Size = new System.Drawing.Size(89, 29);
+            this.lblClientePagos.TabIndex = 20;
+            this.lblClientePagos.Text = "Cliente";
             // 
             // pagoBindingNavigator
             // 
@@ -719,6 +725,11 @@
             this.bindingNavigatorAddNewPago.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewPago.Text = "Agregar nuevo";
             this.bindingNavigatorAddNewPago.Click += new System.EventHandler(this.bindingNavigatorAddNewPago_Click);
+            // 
+            // pagoBindingSource
+            // 
+            this.pagoBindingSource.DataMember = "pago";
+            this.pagoBindingSource.DataSource = this.segurosDataSet;
             // 
             // bindingNavigatorCountPago
             // 
@@ -763,7 +774,6 @@
             // 
             this.bindingNavigatorPositionPago.AccessibleName = "Posición";
             this.bindingNavigatorPositionPago.AutoSize = false;
-            this.bindingNavigatorPositionPago.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionPago.Name = "bindingNavigatorPositionPago";
             this.bindingNavigatorPositionPago.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionPago.Text = "0";
@@ -805,6 +815,73 @@
             this.pagoBindingNavigatorSavePago.Size = new System.Drawing.Size(23, 22);
             this.pagoBindingNavigatorSavePago.Text = "Guardar datos";
             this.pagoBindingNavigatorSavePago.Click += new System.EventHandler(this.pagoBindingNavigatorSavePago_Click);
+            // 
+            // pagoDataGridView
+            // 
+            this.pagoDataGridView.AllowUserToAddRows = false;
+            this.pagoDataGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(221)))), ((int)(((byte)(181)))));
+            this.pagoDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.pagoDataGridView.AutoGenerateColumns = false;
+            this.pagoDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.pagoDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(150)))));
+            this.pagoDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(97)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.pagoDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.pagoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.pagoDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_pago,
+            this.fk_poliza,
+            this.importe_pago});
+            this.pagoDataGridView.DataSource = this.pagoBindingSource;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(150)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(125)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.pagoDataGridView.DefaultCellStyle = dataGridViewCellStyle11;
+            this.pagoDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pagoDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(150)))));
+            this.pagoDataGridView.Location = new System.Drawing.Point(3, 80);
+            this.pagoDataGridView.Name = "pagoDataGridView";
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(125)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.pagoDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.pagoDataGridView.RowHeadersVisible = false;
+            this.pagoDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.pagoDataGridView.Size = new System.Drawing.Size(838, 346);
+            this.pagoDataGridView.TabIndex = 17;
+            // 
+            // id_pago
+            // 
+            this.id_pago.DataPropertyName = "id";
+            this.id_pago.HeaderText = "id";
+            this.id_pago.Name = "id_pago";
+            // 
+            // fk_poliza
+            // 
+            this.fk_poliza.DataPropertyName = "id_poliza";
+            this.fk_poliza.HeaderText = "id_poliza";
+            this.fk_poliza.Name = "fk_poliza";
+            // 
+            // importe_pago
+            // 
+            this.importe_pago.DataPropertyName = "importe";
+            this.importe_pago.HeaderText = "Importe (EUR)";
+            this.importe_pago.Name = "importe_pago";
             // 
             // clienteTableAdapter
             // 
@@ -849,6 +926,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(150)))));
             this.ClientSize = new System.Drawing.Size(852, 455);
             this.Controls.Add(this.tabMain);
             this.Name = "FormMain";
@@ -873,11 +951,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.polizaDataGridView)).EndInit();
             this.tabPagos.ResumeLayout(false);
             this.tabPagos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pagoDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pagoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pagoBindingNavigator)).EndInit();
             this.pagoBindingNavigator.ResumeLayout(false);
             this.pagoBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pagoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pagoDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -960,7 +1038,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fk_poliza;
         private System.Windows.Forms.DataGridViewTextBoxColumn importe_pago;
         private SegurosDataSetTableAdapters.TableAdapterManager pagoTableAdapterManager;
-        private System.Windows.Forms.Label lblCliente;
+        private System.Windows.Forms.Label lblClientePolizas;
+        private System.Windows.Forms.Label lblClientePagos;
     }
 }
 
