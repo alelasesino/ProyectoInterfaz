@@ -1,5 +1,5 @@
 ﻿namespace ProyectoInterfaz {
-    partial class PolizaFilterModal {
+    partial class FormPolizaFilter {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -108,7 +108,7 @@
             // 
             // btAceptar
             // 
-            this.btAceptar.Location = new System.Drawing.Point(31, 145);
+            this.btAceptar.Location = new System.Drawing.Point(35, 144);
             this.btAceptar.Name = "btAceptar";
             this.btAceptar.Size = new System.Drawing.Size(75, 23);
             this.btAceptar.TabIndex = 9;
@@ -117,7 +117,7 @@
             // 
             // btCancelar
             // 
-            this.btCancelar.Location = new System.Drawing.Point(112, 145);
+            this.btCancelar.Location = new System.Drawing.Point(116, 144);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(75, 23);
             this.btCancelar.TabIndex = 10;
@@ -128,6 +128,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(215)))), ((int)(((byte)(150)))));
             this.ClientSize = new System.Drawing.Size(230, 188);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.btAceptar);

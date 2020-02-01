@@ -8,7 +8,8 @@ using System.Windows.Forms;
 namespace ProyectoInterfaz {
     public partial class FormMain: Form {
 
-        private DateTimePicker cellDateTimePicker = new DateTimePicker();
+        private DateTimePicker cellDateTimePickerPolizas = new DateTimePicker();
+        private DateTimePicker cellDateTimePickerPagos = new DateTimePicker();
         private ComboBox stateCombox = new ComboBox();
         private Cliente currentClientSelected;
         private Poliza currentPolizaSelected;
@@ -17,10 +18,10 @@ namespace ProyectoInterfaz {
         public FormMain() {
             InitializeComponent();
 
-            polizaDataGridView.Controls.Add(cellDateTimePicker);
-            cellDateTimePicker.Visible = false;
-            cellDateTimePicker.Format = DateTimePickerFormat.Custom;
-            cellDateTimePicker.TextChanged += new EventHandler(cellDateTimePickerChanged);
+            polizaDataGridView.Controls.Add(cellDateTimePickerPolizas);
+            cellDateTimePickerPolizas.Visible = false;
+            cellDateTimePickerPolizas.Format = DateTimePickerFormat.Custom;
+            cellDateTimePickerPolizas.TextChanged += new EventHandler(cellDateTimePickerChangedPolizas);
 
             polizaDataGridView.Controls.Add(stateCombox);
             stateCombox.Visible = false;
@@ -32,7 +33,12 @@ namespace ProyectoInterfaz {
             "Pre anulada",
             "Anulada"});
             stateCombox.Name = "State Combo";
-            stateCombox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            stateCombox.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            pagoDataGridView.Controls.Add(cellDateTimePickerPagos);
+            cellDateTimePickerPagos.Visible = false;
+            cellDateTimePickerPagos.Format = DateTimePickerFormat.Custom;
+            cellDateTimePickerPagos.TextChanged += new EventHandler(cellDateTimePickerChangedPagos);
 
         }
 
@@ -41,6 +47,9 @@ namespace ProyectoInterfaz {
             this.clienteBindingSource.EndEdit();
             this.clienteTableAdapterManager.UpdateAll(this.segurosDataSet);
             this.clienteTableAdapter.Fill(this.segurosDataSet.cliente);
+
+            if(editCliente.BackColor != Color.Transparent)
+                changeEditMode(clienteDataGridView,editCliente);
         }
 
         private void polizaBindingNavigatorSaveItem_Click(object sender,EventArgs e) {
@@ -48,6 +57,19 @@ namespace ProyectoInterfaz {
             this.polizaBindingSource.EndEdit();
             this.polizaTableAdapterManager.UpdateAll(this.segurosDataSet);
             this.polizaTableAdapter.Fill(this.segurosDataSet.poliza);
+
+            if(editPoliza.BackColor != Color.Transparent)
+                changeEditMode(polizaDataGridView,editPoliza);
+        }
+
+        private void pagoBindingNavigatorSavePago_Click(object sender,EventArgs e) {
+            this.Validate();
+            this.pagoBindingSource.EndEdit();
+            this.pagoTableAdapterManager.UpdateAll(this.segurosDataSet);
+            this.pagoTableAdapter.Fill(this.segurosDataSet.pago);
+
+            if(editPago.BackColor != Color.Transparent)
+                changeEditMode(pagoDataGridView,editPago);
         }
 
         private void Form1_Load(object sender,EventArgs e) {
@@ -63,20 +85,20 @@ namespace ProyectoInterfaz {
 
             switch(polizaDataGridView.Columns[e.ColumnIndex].Name) {
             
-                case "fecha":
+                case "fecha_poliza":
 
                     var rectangleDate = polizaDataGridView.GetCellDisplayRectangle(e.ColumnIndex,e.RowIndex,true);
-                    cellDateTimePicker.Size = new Size(rectangleDate.Width,rectangleDate.Height);
-                    cellDateTimePicker.Location = new Point(rectangleDate.X,rectangleDate.Y);
-                    cellDateTimePicker.Visible = true;
+                    cellDateTimePickerPolizas.Size = new Size(rectangleDate.Width,rectangleDate.Height);
+                    cellDateTimePickerPolizas.Location = new Point(rectangleDate.X,rectangleDate.Y);
+                    cellDateTimePickerPolizas.Visible = true;
 
                     if(polizaDataGridView.CurrentCell.Value.ToString() != "")
-                        cellDateTimePicker.Value = Convert.ToDateTime(polizaDataGridView.CurrentCell.Value.ToString());
+                        cellDateTimePickerPolizas.Value = Convert.ToDateTime(polizaDataGridView.CurrentCell.Value.ToString());
                     else
-                        cellDateTimePicker.Value = DateTime.Today;
+                        cellDateTimePickerPolizas.Value = DateTime.Today;
                 break;
 
-                case "estado":
+                case "estado_poliza":
 
                     var rectangleState = polizaDataGridView.GetCellDisplayRectangle(e.ColumnIndex,e.RowIndex,true);
                     stateCombox.Size = new Size(rectangleState.Width,rectangleState.Height);
@@ -94,24 +116,28 @@ namespace ProyectoInterfaz {
 
         }
 
-        private void cellDateTimePickerChanged(object sender, EventArgs e) {
-            polizaDataGridView.CurrentCell.Value = cellDateTimePicker.Text.ToString();
+        private void cellDateTimePickerChangedPolizas(object sender, EventArgs e) {
+            polizaDataGridView.CurrentCell.Value = cellDateTimePickerPolizas.Text.ToString();
+        }
+
+        private void cellDateTimePickerChangedPagos(object sender,EventArgs e) {
+            pagoDataGridView.CurrentCell.Value = cellDateTimePickerPagos.Text.ToString();
         }
 
         private void polizaDataGridView_CancelRowEdit(object sender,QuestionEventArgs e) {
-            cellDateTimePicker.Visible = false;
+            cellDateTimePickerPolizas.Visible = false;
         }
 
         private void polizaDataGridView_CellEndEdit(object sender,DataGridViewCellEventArgs e) {
 
             switch(polizaDataGridView.Columns[e.ColumnIndex].Name) {
 
-                case "fecha":
-                    polizaDataGridView.CurrentCell.Value = cellDateTimePicker.Text.ToString();
-                    cellDateTimePicker.Visible = false;
+                case "fecha_poliza":
+                    polizaDataGridView.CurrentCell.Value = cellDateTimePickerPolizas.Text.ToString();
+                    cellDateTimePickerPolizas.Visible = false;
                 break;
 
-                case "estado":
+                case "estado_poliza":
                     polizaDataGridView.CurrentCell.Value = stateCombox.Text.ToString();
                     stateCombox.Visible = false;
                 break;
@@ -220,16 +246,9 @@ namespace ProyectoInterfaz {
 
             if(currentClientSelected.id != -1) {
                 tabMain.SelectedTab = tabPolizas;
-                polizaDataGridView.Sort(this.polizaDataGridView.Columns["fecha"],ListSortDirection.Descending);
+                polizaDataGridView.Sort(this.polizaDataGridView.Columns["fecha_poliza"],ListSortDirection.Descending);
             }
 
-        }
-
-        private void pagoBindingNavigatorSavePago_Click(object sender,EventArgs e) {
-            this.Validate();
-            this.pagoBindingSource.EndEdit();
-            this.pagoTableAdapterManager.UpdateAll(this.segurosDataSet);
-            this.pagoTableAdapter.Fill(this.segurosDataSet.pago);
         }
 
         private void bindingNavigatorAddNewPoliza_Click(object sender,EventArgs e) {
@@ -238,6 +257,8 @@ namespace ProyectoInterfaz {
             polizaDataGridView.CurrentRow.Cells[1].Value = currentClientSelected.id;
             polizaDataGridView.CurrentRow.Cells[3].Value = DateTime.Today;
             polizaDataGridView.CurrentRow.Cells[4].Value = "A cuenta";
+
+            changeEditMode(polizaDataGridView,editPoliza);
 
         }
 
@@ -270,6 +291,8 @@ namespace ProyectoInterfaz {
 
             //pagoDataGridView.CurrentRow.Cells[0].Value = 0;
             pagoDataGridView.CurrentRow.Cells[1].Value = currentPolizaSelected.id;
+            pagoDataGridView.CurrentRow.Cells[3].Value = DateTime.Today;
+            changeEditMode(pagoDataGridView,editPago);
 
         }
 
@@ -281,13 +304,6 @@ namespace ProyectoInterfaz {
         }
 
         private void polizaDataGridView_CellFormatting(object sender,DataGridViewCellFormattingEventArgs e) {
-            
-            /*IDictionary<string,Color> fontColor = new Dictionary<string,Color>();
-            fontColor["A cuenta"] = ColorTranslator.FromHtml("#000000");
-            fontColor["Cobrada"] = ColorTranslator.FromHtml("#000000");
-            fontColor["Liquidada"] = ColorTranslator.FromHtml("#000000");
-            fontColor["Pre Anulada"] = ColorTranslator.FromHtml("#000000");
-            fontColor["Anulada"] = ColorTranslator.FromHtml("#000000");*/
 
             IDictionary<string,Color> bgColor = new Dictionary<string,Color>();
             bgColor["A cuenta"] = ColorTranslator.FromHtml("#FF8989");
@@ -298,18 +314,81 @@ namespace ProyectoInterfaz {
 
             foreach(DataGridViewRow row in polizaDataGridView.Rows) {
                 
-                string state = toString(row.Cells["estado"].Value);
+                string state = toString(row.Cells["estado_poliza"].Value);
 
-                if(state != ""){
+                if(state != "")
                     row.DefaultCellStyle.BackColor = bgColor[state];
-                   //row.DefaultCellStyle.ForeColor = fontColor[state];
-                }
 
             }
 
         }
 
         private void informeCliente_Click(object sender,EventArgs e) {
+
+        }
+
+        private void editCliente_Click(object sender,EventArgs e) {
+
+            changeEditMode(clienteDataGridView,editCliente);
+
+        }
+
+        private void editPoliza_Click(object sender,EventArgs e) {
+
+            changeEditMode(polizaDataGridView,editPoliza);
+
+        }
+
+        private void editPago_Click(object sender,EventArgs e) {
+
+            changeEditMode(pagoDataGridView, editPago);
+
+        }
+
+        private void changeEditMode(DataGridView datagrid,ToolStripButton editButton) {
+
+            editButton.BackColor = (editButton.BackColor == Color.Transparent) ? ColorTranslator.FromHtml("#FF7D12") : Color.Transparent;
+            datagrid.ReadOnly = (editButton.BackColor == Color.Transparent);
+
+        }
+
+        private void addNewCliente_Click(object sender,EventArgs e) {
+
+            changeEditMode(clienteDataGridView,editCliente);
+
+        }
+
+        private void pagoDataGridView_CellBeginEdit(object sender,DataGridViewCellCancelEventArgs e) {
+
+            switch(pagoDataGridView.Columns[e.ColumnIndex].Name) {
+
+                case "fecha_pago":
+
+                var rectangleDate = pagoDataGridView.GetCellDisplayRectangle(e.ColumnIndex,e.RowIndex,true);
+                cellDateTimePickerPagos.Size = new Size(rectangleDate.Width,rectangleDate.Height);
+                cellDateTimePickerPagos.Location = new Point(rectangleDate.X,rectangleDate.Y);
+                cellDateTimePickerPagos.Visible = true;
+
+                if(pagoDataGridView.CurrentCell.Value.ToString() != "")
+                    cellDateTimePickerPagos.Value = Convert.ToDateTime(pagoDataGridView.CurrentCell.Value.ToString());
+                else
+                    cellDateTimePickerPagos.Value = DateTime.Today;
+                break;
+
+            }
+
+        }
+
+        private void pagoDataGridView_CellEndEdit(object sender,DataGridViewCellEventArgs e) {
+
+            switch(pagoDataGridView.Columns[e.ColumnIndex].Name) {
+
+                case "fecha_pago":
+                pagoDataGridView.CurrentCell.Value = cellDateTimePickerPagos.Text.ToString();
+                cellDateTimePickerPagos.Visible = false;
+                break;
+
+            }
 
         }
     }

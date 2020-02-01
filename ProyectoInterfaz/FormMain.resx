@@ -120,9 +120,6 @@
   <metadata name="clienteBindingNavigator.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>686, 20</value>
   </metadata>
-  <metadata name="clienteBindingNavigator.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>686, 20</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="addNewCliente.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -201,6 +198,16 @@
         dtINAGGiDUDGyGpoawAxeNSAQWkAORiqnRLAwAAA9EMMU8Daa3MAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="editCliente.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADnSURBVDhP7VE9DoIwGO3sGTyHB2BgZ3TkFLB7BMItTCRc
+        wpoQd3VgE5cWJQHHz76mRQyNQV19yUu+fO+nhbKu6+gX6gLP876iLpBSku/7xLc7uta3SYQXGXuDdZ7n
+        FAQBHQ8nZ2BIeOBFBllGRDM17NM0pTAMqTpfnEEQGjzwIoMsA9q2nTdNU8VxTFEUkRT1KIwdNHjgRUaH
+        LdRiIYS444QkSUYF2EGDB14Te4W61rIsS/2N2Sbrw5ixgwaPsbuh2lecc/2XbQHmoigImrG9hzpFv7Mt
+        6N98Kv4Fz4IhPy5w0cgDMPYAocoUFRThd4MAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="informeCliente.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -210,12 +217,6 @@
         iRc+A3853mDNDZ5fYtK8v66YqVcagUB7yvBJ+2kIcQO7BaqFZHtiUQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="segurosDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="polizaBindingNavigator.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
-  </metadata>
   <metadata name="polizaBindingNavigator.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 56</value>
   </metadata>
@@ -293,9 +294,16 @@
         dtINAGGiDUDGyGpoawAxeNSAQWkAORiqnRLAwAAA9EMMU8Daa3MAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="pagoBindingNavigator.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>402, 56</value>
-  </metadata>
+  <data name="editPoliza.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADnSURBVDhP7VE9DoIwGO3sGTyHB2BgZ3TkFLB7BMItTCRc
+        wpoQd3VgE5cWJQHHz76mRQyNQV19yUu+fO+nhbKu6+gX6gLP876iLpBSku/7xLc7uta3SYQXGXuDdZ7n
+        FAQBHQ8nZ2BIeOBFBllGRDM17NM0pTAMqTpfnEEQGjzwIoMsA9q2nTdNU8VxTFEUkRT1KIwdNHjgRUaH
+        LdRiIYS444QkSUYF2EGDB14Te4W61rIsS/2N2Sbrw5ixgwaPsbuh2lecc/2XbQHmoigImrG9hzpFv7Mt
+        6N98Kv4Fz4IhPy5w0cgDMPYAocoUFRThd4MAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="pagoBindingNavigator.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>402, 56</value>
   </metadata>
@@ -373,6 +381,19 @@
         dtINAGGiDUDGyGpoawAxeNSAQWkAORiqnRLAwAAA9EMMU8Daa3MAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="editPago.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADnSURBVDhP7VE9DoIwGO3sGTyHB2BgZ3TkFLB7BMItTCRc
+        wpoQd3VgE5cWJQHHz76mRQyNQV19yUu+fO+nhbKu6+gX6gLP876iLpBSku/7xLc7uta3SYQXGXuDdZ7n
+        FAQBHQ8nZ2BIeOBFBllGRDM17NM0pTAMqTpfnEEQGjzwIoMsA9q2nTdNU8VxTFEUkRT1KIwdNHjgRUaH
+        LdRiIYS444QkSUYF2EGDB14Te4W61rIsS/2N2Sbrw5ixgwaPsbuh2lecc/2XbQHmoigImrG9hzpFv7Mt
+        6N98Kv4Fz4IhPy5w0cgDMPYAocoUFRThd4MAAAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="fecha_pago.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="clienteTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>320, 17</value>
   </metadata>

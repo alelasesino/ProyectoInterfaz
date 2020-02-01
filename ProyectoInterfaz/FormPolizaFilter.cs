@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoInterfaz {
-    public partial class PolizaFilterModal:Form {
-        public PolizaFilterModal() {
+    public partial class FormPolizaFilter:Form {
+        public FormPolizaFilter() {
             InitializeComponent();
         }
     }
