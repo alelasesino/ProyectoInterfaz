@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -324,6 +323,15 @@ namespace ProyectoInterfaz {
         }
 
         private void informeCliente_Click(object sender,EventArgs e) {
+            
+            int[] id_clientes = new int[clienteDataGridView.SelectedRows.Count];
+
+            int i = 0;
+            foreach(DataGridViewRow row in clienteDataGridView.SelectedRows)
+                id_clientes[i++] = toInt(row.Cells["id_cliente"].Value);
+            
+            FormPolizaFilter form = new FormPolizaFilter(id_clientes);
+            form.Show();
 
         }
 

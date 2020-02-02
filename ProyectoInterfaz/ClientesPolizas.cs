@@ -16,14 +16,14 @@ namespace ProyectoInterfaz {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class PolizasClientes : ReportClass {
+    public class ClientesPolizas : ReportClass {
         
-        public PolizasClientes() {
+        public ClientesPolizas() {
         }
         
         public override string ResourceName {
             get {
-                return "PolizasClientes.rpt";
+                return "ClientesPolizas.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace ProyectoInterfaz {
         
         public override string FullResourceName {
             get {
-                return "ProyectoInterfaz.PolizasClientes.rpt";
+                return "ProyectoInterfaz.ClientesPolizas.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace ProyectoInterfaz {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedPolizasClientes : Component, ICachedReport {
+    public class CachedClientesPolizas : Component, ICachedReport {
         
-        public CachedPolizasClientes() {
+        public CachedClientesPolizas() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace ProyectoInterfaz {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            PolizasClientes rpt = new PolizasClientes();
+            ClientesPolizas rpt = new ClientesPolizas();
             rpt.Site = this.Site;
             return rpt;
         }

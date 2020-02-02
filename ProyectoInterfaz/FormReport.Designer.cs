@@ -1,5 +1,5 @@
 ﻿namespace ProyectoInterfaz {
-    partial class ReportForm {
+    partial class FormReport {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -23,27 +23,30 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.reportViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.ClientesPolizas = new ProyectoInterfaz.ClientesPolizas();
             this.SuspendLayout();
             // 
-            // crystalReportViewer1
+            // reportViewer
             // 
-            this.crystalReportViewer1.ActiveViewIndex = -1;
-            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(890, 399);
-            this.crystalReportViewer1.TabIndex = 0;
+            this.reportViewer.ActiveViewIndex = 0;
+            this.reportViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.reportViewer.Cursor = System.Windows.Forms.Cursors.Default;
+            this.reportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer.Name = "reportViewer";
+            this.reportViewer.ReportSource = this.ClientesPolizas;
+            this.reportViewer.Size = new System.Drawing.Size(949, 462);
+            this.reportViewer.TabIndex = 0;
             // 
-            // ReportForm
+            // FormReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(890, 399);
-            this.Controls.Add(this.crystalReportViewer1);
-            this.Name = "ReportForm";
+            this.ClientSize = new System.Drawing.Size(949, 462);
+            this.Controls.Add(this.reportViewer);
+            this.Name = "FormReport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Informe";
             this.ResumeLayout(false);
 
@@ -51,6 +54,7 @@
 
         #endregion
 
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer reportViewer;
+        private ClientesPolizas ClientesPolizas;
     }
 }
