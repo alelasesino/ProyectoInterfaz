@@ -158,7 +158,7 @@ namespace ProyectoInterfaz {
                 lblClientePolizas.Text = currentClientSelected.nombre.ToUpper();
                 lblClientePagos.Text = lblClientePolizas.Text;
 
-                if(currentClientSelected.id == -1 && tabMain.TabPages.Contains(tabPolizas)) {
+                /*if(currentClientSelected.id == -1 && tabMain.TabPages.Contains(tabPolizas)) {
 
                     tabMain.TabPages.Remove(tabPolizas);
 
@@ -167,7 +167,7 @@ namespace ProyectoInterfaz {
                     if(!tabMain.TabPages.Contains(tabPolizas))
                         tabMain.TabPages.Add(tabPolizas);
 
-                }
+                }*/
 
                 //currentClientRowSelected = clienteDataGridView.CurrentCell.RowIndex;
 
@@ -243,7 +243,7 @@ namespace ProyectoInterfaz {
 
         private void clienteDataGridView_CellMouseDoubleClick(object sender,DataGridViewCellMouseEventArgs e) {
 
-            if(currentClientSelected.id != -1) {
+            if(currentClientSelected.id != -1 && editCliente.BackColor == Color.Transparent) {
                 tabMain.SelectedTab = tabPolizas;
                 polizaDataGridView.Sort(this.polizaDataGridView.Columns["fecha_poliza"],ListSortDirection.Descending);
             }
@@ -269,7 +269,7 @@ namespace ProyectoInterfaz {
                 pagoBindingSource.Filter = "id_poliza = '" + currentPolizaSelected.id + "'";
                 //lblCliente.Text = currentClientSelected.nombre.ToUpper();
                 
-                if(currentPolizaSelected.id == -1 && tabMain.TabPages.Contains(tabPagos)) {
+                /*if(currentPolizaSelected.id == -1 && tabMain.TabPages.Contains(tabPagos)) {
 
                     tabMain.TabPages.Remove(tabPagos);
 
@@ -278,7 +278,7 @@ namespace ProyectoInterfaz {
                     if(!tabMain.TabPages.Contains(tabPagos))
                         tabMain.TabPages.Add(tabPagos);
 
-                }
+                }*/
 
                 //currentRowSelected = clienteDataGridView.CurrentCell.RowIndex;
 
@@ -297,7 +297,7 @@ namespace ProyectoInterfaz {
 
         private void polizaDataGridView_CellMouseDoubleClick(object sender,DataGridViewCellMouseEventArgs e) {
 
-            if(currentPolizaSelected.id != -1)
+            if(currentPolizaSelected.id != -1 && editPoliza.BackColor == Color.Transparent)
                 tabMain.SelectedTab = tabPagos;
 
         }
@@ -354,7 +354,7 @@ namespace ProyectoInterfaz {
         }
 
         private void changeEditMode(DataGridView datagrid,ToolStripButton editButton) {
-
+            
             editButton.BackColor = (editButton.BackColor == Color.Transparent) ? ColorTranslator.FromHtml("#FF7D12") : Color.Transparent;
             datagrid.ReadOnly = (editButton.BackColor == Color.Transparent);
 
@@ -399,6 +399,50 @@ namespace ProyectoInterfaz {
             }
 
         }
+
+        private int getPagoTotal(int id) {
+
+            int importeTotal = 0;
+            pagoBindingSource.Filter = "id_poliza = '" + id + "'";
+            
+            foreach(DataGridViewRow row in pagoDataGridView.Rows) {
+
+                int importe = toInt(row.Cells["importe_pago"].Value);
+
+                if(importe != -1)
+                    importeTotal += importe;
+
+            }
+
+            pagoBindingSource.Filter = "id_poliza = '" + currentPolizaSelected.id + "'";
+
+            return importeTotal;
+
+        }
+
+        private void polizaDataGridView_CellPainting(object sender,DataGridViewCellPaintingEventArgs e) {
+
+            if(e.RowIndex > -1) {
+                DataGridViewRow row = polizaDataGridView.Rows[e.RowIndex];
+                string valueA = row.Cells["importe_poliza"].Value.ToString();
+
+                int result;
+                if(Int32.TryParse(valueA,out result)) {
+                    int total = getPagoTotal(toInt(row.Cells["id_poliza"].Value));
+                    result = Int32.Parse(valueA) - total;
+                    row.Cells["liquidado"].Value = result;
+
+                    if(result <= 0){
+                    
+                        row.Cells["estado_poliza"].Value = "Liquidada";
+                        //this.polizaBindingNavigatorSaveItem_Click(null, null);
+                    }
+
+                }
+            }
+
+        }
+
     }
 
 }

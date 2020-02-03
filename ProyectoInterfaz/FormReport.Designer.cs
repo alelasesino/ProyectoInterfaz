@@ -24,18 +24,18 @@
         /// </summary>
         private void InitializeComponent() {
             this.reportViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.ClientesPolizas = new ProyectoInterfaz.ClientesPolizas();
+            this.PolizasClientes1 = new ProyectoInterfaz.PolizasClientes();
             this.SuspendLayout();
             // 
             // reportViewer
             // 
-            this.reportViewer.ActiveViewIndex = 0;
+            this.reportViewer.ActiveViewIndex = -1;
             this.reportViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.reportViewer.Cursor = System.Windows.Forms.Cursors.Default;
+            this.reportViewer.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.reportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reportViewer.Location = new System.Drawing.Point(0, 0);
             this.reportViewer.Name = "reportViewer";
-            this.reportViewer.ReportSource = this.ClientesPolizas;
+            this.reportViewer.ReportSource = this.PolizasClientes1;
             this.reportViewer.Size = new System.Drawing.Size(949, 462);
             this.reportViewer.TabIndex = 0;
             // 
@@ -55,6 +55,6 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer reportViewer;
-        private ClientesPolizas ClientesPolizas;
+        private PolizasClientes PolizasClientes1;
     }
 }
