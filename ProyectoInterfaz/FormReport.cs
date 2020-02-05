@@ -13,21 +13,22 @@ namespace ProyectoInterfaz {
 
         public FormReport(int[] id_clientes, DateTime fechaDesde, DateTime fechaHasta) {
             InitializeComponent();
+            
+            string str_id_clientes = string.Join(",",id_clientes);
 
             Console.WriteLine("Desde: " + fechaDesde.Date.ToShortDateString() + ", Hasta: " + fechaHasta.ToShortDateString());
 
-            foreach(int i in id_clientes)
-                Console.WriteLine("ID_:" + i);
+            Console.WriteLine(str_id_clientes);
 
-            loadReport(id_clientes, fechaDesde, fechaHasta);
+            loadReport(str_id_clientes, fechaDesde, fechaHasta);
 
         }
 
-        private void loadReport(int[] id_clientes,DateTime fechaDesde,DateTime fechaHasta) {
-        
+        private void loadReport(string idClientes,DateTime fechaDesde,DateTime fechaHasta) {
             
-
-            //reportViewer.ReportSource = cr;
+            polizasClientes.SetParameterValue("idClientes",idClientes);
+            polizasClientes.SetParameterValue("fechaDesde",fechaDesde);
+            polizasClientes.SetParameterValue("fechaHasta",fechaHasta);
 
         }
 
