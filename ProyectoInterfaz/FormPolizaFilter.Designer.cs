@@ -69,6 +69,13 @@
             // 
             this.comboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboEstado.FormattingEnabled = true;
+            this.comboEstado.Items.AddRange(new object[] {
+            "Todos",
+            "Cobrada",
+            "A cuenta",
+            "Liquidada",
+            "Pre anulada",
+            "Anulada"});
             this.comboEstado.Location = new System.Drawing.Point(16, 116);
             this.comboEstado.Name = "comboEstado";
             this.comboEstado.Size = new System.Drawing.Size(230, 21);
