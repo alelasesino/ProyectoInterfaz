@@ -357,6 +357,11 @@ namespace ProyectoInterfaz {
             
             editButton.BackColor = (editButton.BackColor == Color.Transparent) ? ColorTranslator.FromHtml("#FF7D12") : Color.Transparent;
             datagrid.ReadOnly = (editButton.BackColor == Color.Transparent);
+            
+            if(datagrid.Columns.Contains("liquidado")){
+                datagrid.Columns["liquidado"].ReadOnly = true;
+                datagrid.Columns["restante"].ReadOnly = true;
+            }
 
         }
 
@@ -424,13 +429,14 @@ namespace ProyectoInterfaz {
 
             if(e.RowIndex > -1) {
                 DataGridViewRow row = polizaDataGridView.Rows[e.RowIndex];
-                string valueA = row.Cells["importe_poliza"].Value.ToString();
+                string importe_poliza = row.Cells["importe_poliza"].Value.ToString();
 
                 int result;
-                if(Int32.TryParse(valueA,out result)) {
+                if(Int32.TryParse(importe_poliza,out result)) {
                     int total = getPagoTotal(toInt(row.Cells["id_poliza"].Value));
-                    result = Int32.Parse(valueA) - total;
-                    row.Cells["liquidado"].Value = result;
+                    result = Int32.Parse(importe_poliza) - total;
+                    row.Cells["restante"].Value = result;
+                    row.Cells["liquidado"].Value = total;
 
                     if(result <= 0){
                     
