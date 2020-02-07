@@ -11,13 +11,31 @@ using System.Windows.Forms;
 namespace ProyectoInterfaz {
     public partial class FormPolizaFilter:Form {
 
+        public DateTime dtFechaDesde, dtFechaHasta;
         private int[] id_clientes;
 
-        public FormPolizaFilter(int[] id_clientes) {
+        public FormPolizaFilter(int[] id_clientes, DateTime fechaDesde,DateTime fechaHasta) {
             this.id_clientes = id_clientes;
+            this.dtFechaDesde = fechaDesde;
+            this.dtFechaHasta = fechaHasta;
+
             InitializeComponent();
+            initializeDatepickers();
+
             comboEstado.SelectedIndex = 0;
+
         }
+
+        private void initializeDatepickers() {
+        
+            if(dtFechaDesde != null)
+                fechaDesde.Value = dtFechaDesde;
+
+            if(dtFechaHasta != null)
+                fechaHasta.Value = dtFechaHasta;
+
+        }
+
 
         private void btAceptar_Click(object sender,EventArgs e) {
 
@@ -26,14 +44,20 @@ namespace ProyectoInterfaz {
             if(estado == "Todos")
                 estado = "";
 
-            FormReport form = new FormReport(id_clientes,fechaDesde.Value,fechaHasta.Value, estado);
+            dtFechaDesde = fechaDesde.Value;
+            dtFechaHasta = fechaHasta.Value;
+
+            FormReport form = new FormReport(id_clientes,fechaDesde.Value,fechaHasta.Value,estado);
             form.Show();
-            Close();
+
+            Dispose();
 
         }
 
         private void btCancelar_Click(object sender,EventArgs e) {
+
             Close();
+
         }
     }
 }

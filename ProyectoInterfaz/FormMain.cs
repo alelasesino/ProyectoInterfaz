@@ -7,6 +7,7 @@ using System.Windows.Forms;
 namespace ProyectoInterfaz {
     public partial class FormMain: Form {
 
+        private DateTime dtFechaDesde, dtFechaHasta;
         private DateTimePicker cellDateTimePickerPolizas = new DateTimePicker();
         private DateTimePicker cellDateTimePickerPagos = new DateTimePicker();
         private ComboBox stateCombox = new ComboBox();
@@ -16,6 +17,9 @@ namespace ProyectoInterfaz {
 
         public FormMain() {
             InitializeComponent();
+
+            dtFechaDesde = DateTime.Today;
+            dtFechaHasta = DateTime.Today;
 
             polizaDataGridView.Controls.Add(cellDateTimePickerPolizas);
             cellDateTimePickerPolizas.Visible = false;
@@ -329,9 +333,14 @@ namespace ProyectoInterfaz {
             int i = 0;
             foreach(DataGridViewRow row in clienteDataGridView.SelectedRows)
                 id_clientes[i++] = toInt(row.Cells["id_cliente"].Value);
-            
-            FormPolizaFilter form = new FormPolizaFilter(id_clientes);
-            form.Show();
+
+            FormPolizaFilter form = new FormPolizaFilter(id_clientes, dtFechaDesde, dtFechaHasta);
+            form.ShowDialog();
+
+            dtFechaDesde = form.dtFechaDesde;
+            dtFechaHasta = form.dtFechaHasta;
+
+            form.Dispose();
 
         }
 
