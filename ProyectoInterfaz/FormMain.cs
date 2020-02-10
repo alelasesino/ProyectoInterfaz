@@ -82,6 +82,15 @@ namespace ProyectoInterfaz {
             this.polizaTableAdapter.Fill(this.segurosDataSet.poliza);
             // TODO: esta línea de código carga datos en la tabla 'segurosDataSet.cliente' Puede moverla o quitarla según sea necesario.
             this.clienteTableAdapter.Fill(this.segurosDataSet.cliente);
+
+            polizaDataGridView.Columns["id_poliza"].DisplayIndex = polizaDataGridView.Columns.Count -1;
+            polizaDataGridView.Columns["fk_cliente"].DisplayIndex = polizaDataGridView.Columns.Count -2;
+            polizaDataGridView.Columns["id_poliza"].Visible = false;
+
+            pagoDataGridView.Columns["id_pago"].DisplayIndex = pagoDataGridView.Columns.Count -1;
+            pagoDataGridView.Columns["fk_poliza"].DisplayIndex = pagoDataGridView.Columns.Count -2;
+            pagoDataGridView.Columns["id_pago"].Visible = false;
+
         }
 
         private void polizaDataGridView_CellBeginEdit(object sender,DataGridViewCellCancelEventArgs e) {
