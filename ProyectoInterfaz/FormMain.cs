@@ -83,9 +83,9 @@ namespace ProyectoInterfaz {
             // TODO: esta línea de código carga datos en la tabla 'segurosDataSet.cliente' Puede moverla o quitarla según sea necesario.
             this.clienteTableAdapter.Fill(this.segurosDataSet.cliente);
 
-            polizaDataGridView.Columns["id_poliza"].DisplayIndex = polizaDataGridView.Columns.Count -1;
+            /*polizaDataGridView.Columns["id_poliza"].DisplayIndex = polizaDataGridView.Columns.Count -1;
             polizaDataGridView.Columns["fk_cliente"].DisplayIndex = polizaDataGridView.Columns.Count -2;
-            polizaDataGridView.Columns["id_poliza"].Visible = false;
+            polizaDataGridView.Columns["id_poliza"].Visible = false;*/
 
             pagoDataGridView.Columns["id_pago"].DisplayIndex = pagoDataGridView.Columns.Count -1;
             pagoDataGridView.Columns["fk_poliza"].DisplayIndex = pagoDataGridView.Columns.Count -2;
@@ -119,10 +119,10 @@ namespace ProyectoInterfaz {
 
                     if(polizaDataGridView.CurrentCell.Value.ToString() != "")
                         stateCombox.SelectedItem = polizaDataGridView.CurrentCell.Value.ToString();
-                     else
+                    else
                         stateCombox.SelectedIndex = 0;
 
-                    break;
+                break;
 
             }
 
@@ -270,7 +270,8 @@ namespace ProyectoInterfaz {
             polizaDataGridView.CurrentRow.Cells[3].Value = DateTime.Today;
             polizaDataGridView.CurrentRow.Cells[4].Value = "A cuenta";
 
-            changeEditMode(polizaDataGridView,editPoliza);
+            if(editPoliza.BackColor == Color.Transparent)
+                changeEditMode(polizaDataGridView,editPoliza);
 
         }
 
@@ -304,7 +305,9 @@ namespace ProyectoInterfaz {
             //pagoDataGridView.CurrentRow.Cells[0].Value = 0;
             pagoDataGridView.CurrentRow.Cells[1].Value = currentPolizaSelected.id;
             pagoDataGridView.CurrentRow.Cells[3].Value = DateTime.Today;
-            changeEditMode(pagoDataGridView,editPago);
+
+            if(editPago.BackColor == Color.Transparent)
+                changeEditMode(pagoDataGridView,editPago);
 
         }
 
@@ -316,11 +319,11 @@ namespace ProyectoInterfaz {
         }
 
         private void polizaDataGridView_CellFormatting(object sender,DataGridViewCellFormattingEventArgs e) {
-
+            
             IDictionary<string,Color> bgColor = new Dictionary<string,Color>();
             bgColor["A cuenta"] = ColorTranslator.FromHtml("#FF8989");
-            bgColor["Cobrada"] = ColorTranslator.FromHtml("#96FF99");
-            bgColor["Liquidada"] = ColorTranslator.FromHtml("#A2FFF2");
+            bgColor["Cobrada"] = ColorTranslator.FromHtml("#A2FFF2");
+            bgColor["Liquidada"] = ColorTranslator.FromHtml("#96FF99");
             bgColor["Pre anulada"] = ColorTranslator.FromHtml("#9DCEFF");
             bgColor["Anulada"] = ColorTranslator.FromHtml("#EEB0FF");
 
@@ -377,6 +380,7 @@ namespace ProyectoInterfaz {
             datagrid.ReadOnly = (editButton.BackColor == Color.Transparent);
             
             if(datagrid.Columns.Contains("liquidado")){
+                datagrid.Columns["id_poliza"].ReadOnly = true;
                 datagrid.Columns["liquidado"].ReadOnly = true;
                 datagrid.Columns["restante"].ReadOnly = true;
             }
@@ -443,9 +447,21 @@ namespace ProyectoInterfaz {
 
         }
 
-        private void polizaDataGridView_CellPainting(object sender,DataGridViewCellPaintingEventArgs e) {
+        private void polizaDataGridView_DataError(object sender,DataGridViewDataErrorEventArgs e) {
 
-            if(e.RowIndex > -1) {
+            MessageBox.Show("¡El importe debe ser un numero!", "Importe incorrecto");
+
+        }
+
+        private void pagoDataGridView_DataError(object sender,DataGridViewDataErrorEventArgs e) {
+
+            MessageBox.Show("¡El importe debe ser un numero!","Importe incorrecto");
+
+        }
+
+        private void polizaDataGridView_CellPainting_1(object sender,DataGridViewCellPaintingEventArgs e) {
+            
+            if(e.RowIndex > -1 && e.ColumnIndex == 5) {
                 DataGridViewRow row = polizaDataGridView.Rows[e.RowIndex];
                 string importe_poliza = row.Cells["importe_poliza"].Value.ToString();
 
@@ -456,8 +472,8 @@ namespace ProyectoInterfaz {
                     row.Cells["restante"].Value = result;
                     row.Cells["liquidado"].Value = total;
 
-                    if(result <= 0){
-                    
+                    if(result <= 0) {
+
                         row.Cells["estado_poliza"].Value = "Liquidada";
                         //this.polizaBindingNavigatorSaveItem_Click(null, null);
                     }
